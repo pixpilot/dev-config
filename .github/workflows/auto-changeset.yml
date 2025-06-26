@@ -1,0 +1,51 @@
+name: Auto Changeset for Dependabot
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, labeled]
+
+jobs:
+  add-changeset:
+    # Run only for Dependabot PRs
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      # Required to push to the PR branch
+      contents: write
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Setup Node and pnpm
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # FIX: Add this step to build the project before testing/pushing
+      - name: Build project
+        run: pnpm build
+
+      - name: Add changeset
+        run: |
+          pnpm changeset add --empty
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and Push Changeset
+        # This step will now succeed because the 'pnpm build'
+        # step created the /dist files needed by the pre-push test hook.
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [ -n "$(git status --porcelain .changeset)" ]; then
+            git add .changeset/*.md
+            git commit -m "chore(changeset): add changeset for dependabot"
+            git push
+          else
+            echo "No changeset created, nothing to commit."
+          fi
