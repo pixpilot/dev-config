@@ -1,5 +1,12 @@
 # @pixpilot/dev-config
 
+## 1.1.6-rc.1
+
+### Patch Changes
+
+- 97aee31: chore: update package.json for version 1.1.5 release
+- c8bfcd6: fix pre.json format
+
 ## 1.1.6-rc.0
 
 ### Patch Changes
