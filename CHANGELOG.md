@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.5
+
+### Patch Changes
+
+- 6071205: fix: correct environment variable name for npm authentication
+
 ## 1.1.4
 
 ### Patch Changes
