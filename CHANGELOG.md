@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.4
+
+### Patch Changes
+
+- c9dbe00: fix: streamline npm authentication setup in publish workflow
+
 ## 1.1.3
 
 ### Patch Changes
