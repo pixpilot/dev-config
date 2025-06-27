@@ -4,5 +4,10 @@
   "initialVersions": {
     "@pixpilot/dev-config": "1.1.5"
   },
-  "changesets": ["icy-kids-invent", "tender-foxes-live", "thick-mugs-melt"]
+  "changesets": [
+    "icy-kids-invent",
+    "long-ravens-divide",
+    "tender-foxes-live",
+    "thick-mugs-melt"
+  ]
 }

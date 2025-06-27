@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.6-rc.2
+
+### Patch Changes
+
+- a0d172a: fix: update pre.json format and add .changeset/ to .prettierignore and ESLint config
+
 ## 1.1.6-rc.1
 
 ### Patch Changes
