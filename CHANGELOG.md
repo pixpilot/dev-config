@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.6-rc.0
+
+### Patch Changes
+
+- e5bc2a5: test
+
 ## 1.1.5
 
 ### Patch Changes
