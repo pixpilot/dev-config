@@ -59,6 +59,7 @@ const config: TSESLint.FlatConfig.ConfigArray = tseslint.config(
       '**/*.config.*',
       '**/*.d.ts',
       '**/*.map',
+      '.changeset/',
     ],
   },
 
