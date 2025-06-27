@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.1
+
+### Patch Changes
+
+- 503d6b7: re-publish
+
 ## 1.1.0
 
 ### Minor Changes
