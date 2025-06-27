@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.2
+
+### Patch Changes
+
+- c20266f: fix: update npm authentication setup in publish workflow
+
 ## 1.1.1
 
 ### Patch Changes
