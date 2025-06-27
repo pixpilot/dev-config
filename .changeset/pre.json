@@ -4,5 +4,7 @@
   "initialVersions": {
     "@pixpilot/dev-config": "1.1.5"
   },
-  "changesets": []
+  "changesets": [
+    "tender-foxes-live"
+  ]
 }
