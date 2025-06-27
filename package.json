@@ -50,6 +50,9 @@
     "changeset": "changeset",
     "changeset:version": "changeset version",
     "changeset:publish": "pnpm run build && changeset publish",
+    "changeset:pre:enter": "changeset pre enter rc",
+    "changeset:pre:exit": "changeset pre exit",
+    "changeset:publish:rc": "pnpm run build && changeset publish --tag rc",
     "prepare": "husky"
   },
   "lint-staged": {
