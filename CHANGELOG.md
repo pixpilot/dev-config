@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.0
+
+### Minor Changes
+
+- 4faa393: eslint-jest rule change
+
 ## 1.0.21
 
 ### Patch Changes
