@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.3
+
+### Patch Changes
+
+- 1802741: fix: remove npm authentication setup from publish workflow
+
 ## 1.1.2
 
 ### Patch Changes
