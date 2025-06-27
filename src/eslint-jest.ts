@@ -59,7 +59,7 @@ const config: TSESLint.FlatConfig.ConfigArray = [
       ...jestPlugin.configs.style.rules,
 
       // Additional Jest-specific rules
-      'jest/consistent-test-it': ['error', { fn: 'test' }],
+      'jest/consistent-test-it': ['error'],
       'jest/expect-expect': [
         'error',
         {
