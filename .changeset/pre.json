@@ -5,6 +5,7 @@
     "@pixpilot/dev-config": "1.1.5"
   },
   "changesets": [
+    "chilly-jobs-wonder",
     "icy-kids-invent",
     "long-ravens-divide",
     "tender-foxes-live",

@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.6-rc.3
+
+### Patch Changes
+
+- bd094f2: fix: add NODE_AUTH_TOKEN to environment variables for npm authentication
+
 ## 1.1.6-rc.2
 
 ### Patch Changes
