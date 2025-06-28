@@ -132,6 +132,8 @@ const config: TSESLint.FlatConfig.ConfigArray = tseslint.config(
       'prefer-const': 'error',
       'no-var': 'error',
       'no-implicit-coercion': 'error',
+      // Enforce the use of object shorthand syntax
+      'object-shorthand': ['error', 'always'],
     },
   },
 
