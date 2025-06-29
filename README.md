@@ -207,8 +207,8 @@ export default {
 {
   "extends": "@pixpilot/dev-config/typescript",
   "compilerOptions": {
-    "module": "ES2022",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src"

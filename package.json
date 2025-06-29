@@ -34,6 +34,7 @@
     "README.md"
   ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "tsc && pnpm run copy-assets",
     "compile": "tsc && pnpm run copy-assets",
     "copy-assets": "node -e \"const fs = require('fs'); const path = require('path'); const src = 'src/tsconfig-base.json', dest = 'dist/tsconfig-base.json'; if (fs.existsSync(src)) { fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.copyFileSync(src, dest); } else console.warn('Warning: ' + src + ' does not exist, skipping copy.');\"",
