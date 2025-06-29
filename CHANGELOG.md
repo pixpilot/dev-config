@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 1.1.6-rc.4
+
+### Patch Changes
+
+- d01220e: fix: enforce object shorthand syntax in ESLint configuration
+
 ## 1.1.6-rc.3
 
 ### Patch Changes
