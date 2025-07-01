@@ -1,0 +1,121 @@
+{
+  "name": "@pixpilot/dev-config",
+  "version": "1.0.1",
+  "description": "Modern, opinionated development configurations for TypeScript/JavaScript projects including ESLint, Prettier, Jest, and TypeScript configs",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./eslint": {
+      "types": "./dist/eslint.d.ts",
+      "import": "./dist/eslint.js",
+      "default": "./dist/eslint.js"
+    },
+    "./eslint-jest": {
+      "types": "./dist/eslint-jest.d.ts",
+      "import": "./dist/eslint-jest.js",
+      "default": "./dist/eslint-jest.js"
+    },
+    "./prettier": {
+      "types": "./dist/prettier.d.ts",
+      "import": "./dist/prettier.js",
+      "default": "./dist/prettier.js"
+    },
+    "./jest": {
+      "types": "./dist/jest.d.ts",
+      "import": "./dist/jest.js",
+      "default": "./dist/jest.js"
+    },
+    "./typescript": "./dist/tsconfig-base.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "tsc && pnpm run copy-assets",
+    "compile": "tsc && pnpm run copy-assets",
+    "copy-assets": "node -e \"const fs = require('fs'); const path = require('path'); const src = 'src/tsconfig-base.json', dest = 'dist/tsconfig-base.json'; if (fs.existsSync(src)) { fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.copyFileSync(src, dest); } else console.warn('Warning: ' + src + ' does not exist, skipping copy.');\"",
+    "clean": "rimraf dist",
+    "test": "node test/verify.js",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "tsc:watch": "tsc --noEmit --watch",
+    "fix:all": "pnpm run lint:fix && pnpm run format:fix",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "prepare": "husky",
+    "release": "semantic-release"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,yml}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "eslint",
+    "prettier",
+    "typescript",
+    "jest",
+    "tsconfig",
+    "config",
+    "development",
+    "linting",
+    "formatting",
+    "testing"
+  ],
+  "author": "pixpilot",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixpilot/dev-config"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9.6.0"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.6.0",
+    "typescript": "^5.0.0"
+  },
+  "optionalPeerDependencies": {
+    "jest": "^29.0.0"
+  },
+  "dependencies": {
+    "@eslint/compat": "^1.3.0",
+    "@eslint/js": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jest": "^29.0.1",
+    "ts-jest": "^29.4.0",
+    "typescript-eslint": "^8.35.0"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.3",
+    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.0.3",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^24.0.3",
+    "@typescript-eslint/utils": "^8.35.0",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "jiti": "^2.4.2",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.0",
+    "rimraf": "^6.0.1",
+    "semantic-release": "^24.2.6",
+    "typescript": "^5.8.3"
+  }
+}

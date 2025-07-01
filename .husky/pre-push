@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+echo "Running tests..."
+pnpm run test
+
+echo "Type checking..."
+pnpm run typecheck
