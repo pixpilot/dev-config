@@ -3,7 +3,7 @@
 #
 #   jobs:
 #     dependabot-auto-merge:
-#       uses: <owner>/<repo>/.github/workflows/dependabot-auto-merge.yml@main
+#       uses: pixpilot/dev-config/.github/workflows/dependabot-auto-merge.yml@main
 #
 # -------------------------------------------------------------
 name: Dependabot auto approve and merge

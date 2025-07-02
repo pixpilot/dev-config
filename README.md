@@ -102,6 +102,23 @@ jobs:
     uses: pixpilot/dev-config/.github/workflows/dependabot-auto-merge.yml@main
 ```
 
+### Semantic Release (Reusable)
+
+> **Note:** This workflow is designed for use with protected PR branches.
+
+```yaml
+jobs:
+  release:
+    uses: pixpilot/dev-config/.github/workflows/semantic-release-protected-branch.yml@main
+    secrets:
+      RELEASER_ID: ${{ secrets.RELEASER_ID }}
+      RELEASER_PRIVATE_KEY: ${{ secrets.RELEASER_PRIVATE_KEY }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+- See [this gist](https://gist.github.com/0xernesto/a8065cce55940e6ccc523664a87ee9bc) for setup instructions, including GitHub App creation and secret configuration.
+- Required secrets: `RELEASER_ID`, `RELEASER_PRIVATE_KEY`, `NPM_TOKEN` (see gist for details).
+
 ## Features
 
 **ESLint**: TypeScript-first with import sorting and type-checking
