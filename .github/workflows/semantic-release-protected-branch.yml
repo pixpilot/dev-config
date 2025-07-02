@@ -1,3 +1,20 @@
+# =====================================================================
+# USAGE INSTRUCTIONS
+#
+# To reuse this workflow, reference it in your workflow YAML as:
+#   uses: pixpilot/dev-config/.github/workflows/semantic-release-protected-branch.yml@main
+#
+# Additional setup:
+# - See the following gist for detailed instructions:
+#   https://gist.github.com/0xernesto/a8065cce55940e6ccc523664a87ee9bc
+# - You must set up a GitHub App and add the following repository secrets:
+#     RELEASER_ID:            The App ID of your GitHub App
+#     RELEASER_PRIVATE_KEY:   The private key for your GitHub App
+#     NPM_TOKEN:              Your npm publish token
+#
+# For GitHub App setup and secret configuration, follow the steps in the gist above.
+# =====================================================================
+
 name: Reusable Release Steps
 
 on:
