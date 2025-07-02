@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/pixpilot/dev-config/compare/v1.1.5...v1.1.6) (2025-07-02)
+
+
+### Bug Fixes
+
+* correct formatting of usage instructions in semantic-release workflow ([8c471c8](https://github.com/pixpilot/dev-config/commit/8c471c87f3cab3a32f4c30b54d5fa00e360eba97))
+
 ## [1.0.2](https://github.com/pixpilot/dev-config/compare/v1.0.1...v1.0.2) (2025-07-02)
 
 
