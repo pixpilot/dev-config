@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/pixpilot/dev-config/compare/v1.1.6...v1.1.7) (2025-07-04)
+
+
+### Bug Fixes
+
+* update testMatch pattern in Jest configuration ([a8fcfae](https://github.com/pixpilot/dev-config/commit/a8fcfae10725df18981b1e3e64e99fec63448ffa))
+
 ## [1.1.6](https://github.com/pixpilot/dev-config/compare/v1.1.5...v1.1.6) (2025-07-02)
 
 
