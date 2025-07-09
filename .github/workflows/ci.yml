@@ -5,7 +5,10 @@ name: CI
 
 on:
   pull_request:
-    branches: [main, master]
+    branches:
+      - main
+      - master
+      - next
   workflow_call:
 
 jobs:

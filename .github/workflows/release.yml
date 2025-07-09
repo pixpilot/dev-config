@@ -4,7 +4,10 @@ name: Release Package
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - master
+      - next
   workflow_dispatch:
 
 jobs:
