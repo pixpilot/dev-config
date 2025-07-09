@@ -4,11 +4,16 @@ paths:
   - src
 
 paths-ignore:
+  - test
   - tests
+  - dist
   - '**/*.test.ts'
   - '**/*.spec.ts'
   - '**/*.test.tsx'
   - '**/*.spec.tsx'
+
+queries:
+  - uses: security-extended
 
 query-filters:
   # Falls over on our dynamic RegExp generation
