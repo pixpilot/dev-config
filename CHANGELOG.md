@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/pixpilot/dev-config/compare/v1.1.7...v1.2.0) (2025-07-09)
+
+
+### Bug Fixes
+
+* add 'next' branch to push trigger for CodeQL analysis ([89853fe](https://github.com/pixpilot/dev-config/commit/89853feed4be3535a87e406b3fb3cf0ee82e1e84))
+* uncomment configuration for CodeQL analysis job ([38ca007](https://github.com/pixpilot/dev-config/commit/38ca0072020e0664b316186521ce539dbd24b09a))
+* update branch filters in CI and release workflows to include 'master' and 'next' ([cb2d02d](https://github.com/pixpilot/dev-config/commit/cb2d02dc06ea3c0089ca36820da31f027609aa8a))
+
+
+### Features
+
+* add CodeQL configuration and reusable workflow for code analysis ([57e2ca3](https://github.com/pixpilot/dev-config/commit/57e2ca3b1e7c44461ad3fcdc977cf44d791b302a))
+
 # [1.2.0-rc.1](https://github.com/pixpilot/dev-config/compare/v1.1.6...v1.2.0-rc.1) (2025-07-09)
 
 ### Bug Fixes
