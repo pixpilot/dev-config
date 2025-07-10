@@ -1,5 +1,19 @@
-# This is a reusable workflow. It can be called from another workflow like this:
+# This workflow:
+# - Runs CodeQL analysis on a repository
+# - Scans for security and quality issues
+# - Automatically creates GitHub issues for each finding
+# - Is reusable and can be called from other workflows
 #
+# How it works:
+# - Runs CodeQL analysis for the specified language.
+# - Generates a SARIF report with security and quality findings.
+# - Processes the SARIF file and:
+#   - Deduplicates findings using a hash of rule, location, and message.
+#   - Creates a GitHub issue for each new finding, labeled 'codeql-finding'.
+#   - Skips open issues and respects closed ones (does not reopen).
+# - Can be called from other workflows using 'workflow_call'.
+#
+# Usage example:
 # jobs:
 #   code-analysis:
 #     uses: pixpilot/dev-config/.github/workflows/codeql-issue-maker.yml@main
@@ -68,7 +82,6 @@ jobs:
           script: |
             const fs = require('fs');
             const crypto = require('crypto');
-            // ... (The rest of your script remains exactly the same) ...
             const sarifPath = 'results.sarif';
 
             if (!fs.existsSync(sarifPath)) {
