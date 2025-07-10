@@ -121,8 +121,8 @@ jobs:
               }
               const body = `
               ## 🚨 Security Alert: ${ruleId}
-              **Message:** ${msg}
-              **Finding ID:** \`${findingHash}\`
+              <strong>Message:</strong> ${msg}
+              <strong>Finding ID:</strong> <code>${findingHash}</code>
               ---
               ### Vulnerability Locations
               ${locationsList}
