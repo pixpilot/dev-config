@@ -4,7 +4,7 @@ paths:
   - src
 
 paths-ignore:
-  - test
+  - tests
 
 query-filters:
   # Falls over on our dynamic RegExp generation

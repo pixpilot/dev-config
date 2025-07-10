@@ -7,6 +7,6 @@ const config = await jiti.import('./src/eslint.ts');
 export default [
   ...config.default,
   {
-    ignores: ['test/', ...config.default[0].ignores],
+    ignores: ['tests/', ...config.default[0].ignores],
   },
 ];
