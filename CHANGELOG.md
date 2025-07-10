@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/pixpilot/dev-config/compare/v1.2.0...v1.3.0) (2025-07-10)
+
+
+### Features
+
+* add reusable CodeQL issue maker workflow ([a76eab3](https://github.com/pixpilot/dev-config/commit/a76eab3ace3df0ea12986335feedd1869c1b8c7e))
+
 # [1.2.0](https://github.com/pixpilot/dev-config/compare/v1.1.7...v1.2.0) (2025-07-09)
 
 
