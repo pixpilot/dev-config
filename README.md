@@ -80,6 +80,26 @@ export default config;
 
 _Requires Jest dependency above_
 
+### Markdownlint
+
+A pre-configured `markdownlint.json` is included.
+
+**Usage:**
+
+```bash
+pnpm add -D markdownlint-cli
+```
+
+To extend, use:
+
+```json
+{
+  "extends": "@pixpilot/dev-config/markdownlint.json"
+}
+```
+
+_You can customize rules by editing your own config as needed._
+
 ## GitHub Workflows
 
 Reusable workflows for common CI/CD tasks:
