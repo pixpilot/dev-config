@@ -1,3 +1,10 @@
+## [1.4.4-rc.2](https://github.com/pixpilot/dev-config/compare/v1.4.4-rc.1...v1.4.4-rc.2) (2025-07-11)
+
+
+### Bug Fixes
+
+* update CodeQL analysis to use extended security query set ([3c98f25](https://github.com/pixpilot/dev-config/commit/3c98f253476bee21e2bbdc9c4ceffa7ae7c9b4bc))
+
 ## [1.4.4-rc.1](https://github.com/pixpilot/dev-config/compare/v1.4.3...v1.4.4-rc.1) (2025-07-11)
 
 
