@@ -1,7 +1,7 @@
 {
   "default": true,
   "line_length": {
-    "line_length": 122,
+    "line_length": 120,
     "strict": false
   }
 }

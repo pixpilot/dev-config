@@ -94,7 +94,7 @@ To extend, use:
 
 ```json
 {
-  "extends": "@pixpilot/dev-config/markdownlint.json"
+  "extends": "@pixpilot/dev-config/markdownlint"
 }
 ```
 
