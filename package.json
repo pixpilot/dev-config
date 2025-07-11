@@ -54,6 +54,15 @@
     "prepare": "husky",
     "release": "semantic-release"
   },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,yml}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "README.md": [
+      "pnpm run lint:README:fix"
+    ]
+  },
   "keywords": [
     "eslint",
     "prettier",
@@ -116,14 +125,5 @@
     "rimraf": "^6.0.1",
     "semantic-release": "^24.2.6",
     "typescript": "^5.8.3"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx,yml}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "README.md": [
-      "pnpm run lint:README:fix"
-    ]
   }
 }
