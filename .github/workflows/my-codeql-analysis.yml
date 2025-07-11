@@ -4,13 +4,11 @@ permissions:
   security-events: write
   actions: read
   contents: read
-  issues: write
 
 on:
   push:
     branches:
       - main
-      - next
   pull_request:
     branches:
       - main
@@ -26,16 +24,15 @@ on:
     #        *  * * * *
     - cron: '30 1 * * 0'
 
-# jobs:
-#   analyze:
-#     uses: pixpilot/dev-config/.github/workflows/codeql-analysis.yml@main
-#     with:
-#       config-file: .github/codeql/codeql-configuration.yml
-
 jobs:
-  code-analysis:
-    uses: pixpilot/dev-config/.github/workflows/codeql-issue-maker.yml@main
+  analyze:
+    uses: pixpilot/dev-config/.github/workflows/codeql-analysis.yml@main
     with:
-      language: 'javascript' # or your target language
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+      config-file: .github/codeql/codeql-configuration.yml
+# jobs:
+#   code-analysis:
+#     uses: pixpilot/dev-config/.github/workflows/codeql-issue-maker.yml@main
+#     with:
+#       language: 'javascript' # or your target language
+#     secrets:
+#       token: ${{ secrets.GITHUB_TOKEN }}
