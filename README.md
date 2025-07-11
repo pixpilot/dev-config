@@ -40,7 +40,7 @@ import jestConfig from '@pixpilot/dev-config/eslint-jest';
 export default [...config, ...jestConfig];
 ```
 
-_Requires Jest dependency above_
+#### ESLint + Jest: Requires Jest dependency above
 
 ### Prettier
 
@@ -78,7 +78,7 @@ import config from '@pixpilot/dev-config/jest';
 export default config;
 ```
 
-_Requires Jest dependency above_
+#### Jest: Requires Jest dependency above
 
 ### Markdownlint
 
