@@ -43,8 +43,8 @@
     "test": "node tests/verify.js",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "lint:md": "markdownlint README.md",
-    "lint:md:fix": "markdownlint README.md --fix",
+    "lint:README": "markdownlint README.md",
+    "lint:README:fix": "markdownlint README.md --fix",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "typecheck": "tsc --noEmit",
@@ -122,9 +122,8 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*.md": [
-      "pnpm run lint:md:fix"
-    ],
-    "!CHANGELOG.md": []
+    "README.md": [
+      "pnpm run lint:README:fix"
+    ]
   }
 }
