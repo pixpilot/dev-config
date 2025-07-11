@@ -1,3 +1,16 @@
+## [1.4.3](https://github.com/pixpilot/dev-config/compare/v1.4.2...v1.4.3) (2025-07-11)
+
+
+### Bug Fixes
+
+* **docs:** clarify dependency requirements for ESLint + Jest and Jest sections ([39467b1](https://github.com/pixpilot/dev-config/commit/39467b11c314594857336803562cd2d86e0ef4df))
+* **lint:** rename markdownlint commands for README.md to improve clarity ([281e26d](https://github.com/pixpilot/dev-config/commit/281e26d8d6259024c7142bb2d9ca8c953171ce84))
+* **lint:** update markdownlint command for fixing README.md ([d535a42](https://github.com/pixpilot/dev-config/commit/d535a42eb2bde09223315fd2dc8f5e3d24ed6a67))
+* **lint:** update markdownlint command to apply fixes to all markdown files excluding CHANGELOG.md ([425bba5](https://github.com/pixpilot/dev-config/commit/425bba53580ae7bed810b4e3212487404d0560e6))
+* **lint:** update markdownlint command to lint only README.md and exclude CHANGELOG.md ([debe977](https://github.com/pixpilot/dev-config/commit/debe9775e9e8a7f699b9cd706bbf02831b7b2e05))
+* **markdownlint:** disable whitespace rule in markdownlint configuration ([e9481a9](https://github.com/pixpilot/dev-config/commit/e9481a9cb7bbe54d3e8bfe589b05f370ca4cac2e))
+* **release:** force patch ([a4b3814](https://github.com/pixpilot/dev-config/commit/a4b38145f3b429315efdcdd05257406bbbfaf9ea))
+
 ## [1.4.2](https://github.com/pixpilot/dev-config/compare/v1.4.1...v1.4.2) (2025-07-11)
 
 
