@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/pixpilot/dev-config/compare/v1.3.0...v1.4.0) (2025-07-11)
+
+
+### Features
+
+* Add markdownlint configuration file with line length rule ([acae5da](https://github.com/pixpilot/dev-config/commit/acae5dab7a90e41b38090cfbdfd5393d9fcb087a))
+
 # [1.3.0](https://github.com/pixpilot/dev-config/compare/v1.2.0...v1.3.0) (2025-07-10)
 
 
