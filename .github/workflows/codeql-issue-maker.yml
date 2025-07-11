@@ -68,7 +68,7 @@ jobs:
         env:
           CODEQL_JAVA_HEAP_SIZE: 4096M
         run: |
-          ${{ steps.initialize.outputs.codeql-path }} database analyze codeql-db --format=sarif-latest --output=results.sarif ${{ inputs.language }}-security-and-quality.qls
+          ${{ steps.initialize.outputs.codeql-path }} database analyze codeql-db --format=sarif-latest --output=results.sarif ${{ inputs.language }}-security-extended.qls
 
       - name: Process SARIF and Create Issues
         uses: actions/github-script@v7
