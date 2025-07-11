@@ -1,7 +1,10 @@
 {
   "default": true,
-  "line_length": {
-    "line_length": 120,
-    "strict": false
-  }
+  "whitespace": false,
+  "line_length": false,
+  "ul-indent": false,
+  "no-inline-html": false,
+  "no-bare-urls": false,
+  "fenced-code-language": false,
+  "first-line-h1": false
 }
