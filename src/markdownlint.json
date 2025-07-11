@@ -1,6 +1,6 @@
 {
   "default": true,
-  "whitespace": true,
+  "whitespace": false,
   "line_length": false,
   "ul-indent": false,
   "no-inline-html": false,
