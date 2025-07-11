@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/pixpilot/dev-config/compare/v1.4.1...v1.4.2) (2025-07-11)
+
+
+### Bug Fixes
+
+* simplify markdownlint commands in package.json ([72d17a0](https://github.com/pixpilot/dev-config/commit/72d17a0829a6b74379f2510fb1f4d626784b439e))
+
 ## [1.4.1](https://github.com/pixpilot/dev-config/compare/v1.4.0...v1.4.1) (2025-07-11)
 
 
