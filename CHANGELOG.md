@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/pixpilot/dev-config/compare/v1.4.0...v1.4.1) (2025-07-11)
+
+
+### Bug Fixes
+
+* update markdownlint configuration to set line length to 120 ([c384fc1](https://github.com/pixpilot/dev-config/commit/c384fc1cc4c53fa4729db24ae36ac703c96178b0))
+
 # [1.4.0](https://github.com/pixpilot/dev-config/compare/v1.3.0...v1.4.0) (2025-07-11)
 
 
