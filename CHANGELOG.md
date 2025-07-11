@@ -1,3 +1,10 @@
+## [1.4.4-rc.1](https://github.com/pixpilot/dev-config/compare/v1.4.3...v1.4.4-rc.1) (2025-07-11)
+
+
+### Bug Fixes
+
+* update permissions to allow writing issues in CodeQL workflow ([39e1c67](https://github.com/pixpilot/dev-config/commit/39e1c67d3377817af9e55c2ea56999099cb1abcc))
+
 ## [1.4.3](https://github.com/pixpilot/dev-config/compare/v1.4.2...v1.4.3) (2025-07-11)
 
 
