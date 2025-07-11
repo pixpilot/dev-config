@@ -35,6 +35,11 @@ on:
         required: true
         type: string
         default: 'javascript'
+      qls-profile:
+        description: 'The CodeQL QLS profile to use (e.g., security-and-quality, security-extended)'
+        required: false
+        type: string
+        default: 'security-and-quality'
     # Define secrets the calling workflow must provide
     secrets:
       token:
@@ -68,7 +73,7 @@ jobs:
         env:
           CODEQL_JAVA_HEAP_SIZE: 4096M
         run: |
-          ${{ steps.initialize.outputs.codeql-path }} database analyze codeql-db --format=sarif-latest --output=results.sarif ${{ inputs.language }}-security-and-quality.qls
+          ${{ steps.initialize.outputs.codeql-path }} database analyze codeql-db --ram=4000 --format=sarif-latest --output=results.sarif ${{ inputs.language }}-${{ inputs.qls-profile }}.qls
 
       - name: Process SARIF and Create Issues
         uses: actions/github-script@v7
