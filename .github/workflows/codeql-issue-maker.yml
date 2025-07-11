@@ -70,8 +70,6 @@ jobs:
           ${{ steps.initialize.outputs.codeql-path }} database create codeql-db --language=${{ inputs.language }}
 
       - name: Analyze with CodeQL CLI
-        env:
-          CODEQL_JAVA_HEAP_SIZE: 4096M
         run: |
           ${{ steps.initialize.outputs.codeql-path }} database analyze codeql-db --ram=4000 --format=sarif-latest --output=results.sarif ${{ inputs.language }}-${{ inputs.qls-profile }}.qls
 
