@@ -123,7 +123,7 @@
       "prettier --write"
     ],
     "*.md": [
-      "pnpm run lint:md:fix"
+      "markdownlint README.md --fix"
     ]
   }
 }
