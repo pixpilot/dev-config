@@ -29,3 +29,10 @@ jobs:
     uses: pixpilot/dev-config/.github/workflows/codeql-analysis.yml@main
     with:
       config-file: .github/codeql/codeql-configuration.yml
+# jobs:
+#   code-analysis:
+#     uses: pixpilot/dev-config/.github/workflows/codeql-issue-maker.yml@main
+#     with:
+#       language: 'javascript' # or your target language
+#     secrets:
+#       token: ${{ secrets.GITHUB_TOKEN }}
