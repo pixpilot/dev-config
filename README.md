@@ -87,7 +87,7 @@ A pre-configured `markdownlint.json` is included.
 **Usage:**
 
 ```bash
-pnpm add -D markdownlint-cli
+npm add -D markdownlint-cli
 ```
 
 To extend, use:
