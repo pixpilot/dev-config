@@ -40,17 +40,6 @@ const config: TSESLint.FlatConfig.ConfigArray = [
     languageOptions: {
       globals: jestPlugin.environments.globals.globals,
     },
-    // Settings for import resolution (if using eslint-plugin-import)
-    settings: {
-      'import/resolver': {
-        node: {
-          extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        },
-        typescript: {
-          alwaysTryTypes: true,
-        },
-      },
-    },
     rules: {
       // Jest recommended rules
       ...jestPlugin.configs.recommended.rules,
