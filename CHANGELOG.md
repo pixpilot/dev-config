@@ -1,3 +1,10 @@
+## [1.4.7-rc.1](https://github.com/pixpilot/dev-config/compare/v1.4.6...v1.4.7-rc.1) (2025-07-12)
+
+
+### Bug Fixes
+
+* remove unused import resolution settings from ESLint Jest config ([bd9135c](https://github.com/pixpilot/dev-config/commit/bd9135c758ffbd1167b370c547ae5dcdad014618))
+
 ## [1.4.6](https://github.com/pixpilot/dev-config/compare/v1.4.5...v1.4.6) (2025-07-12)
 
 
