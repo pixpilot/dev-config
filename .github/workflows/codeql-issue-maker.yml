@@ -1,4 +1,8 @@
 # This file is MIT licensed. See LICENSE in the repository.
+# ------------------------------------------------------------
+# NOTE: For most repositories, you should strongly consider using GitHub's official code security tools
+# (such as CodeQL and Dependabot), which are free for public repositories.
+# See https://github.com/features/security for details.
 #
 # DISCLAIMER:
 # This workflow is a community-developed tool and is not affiliated with, endorsed by, or officially supported by GitHub or the CodeQL team.
@@ -35,6 +39,19 @@ on:
         required: true
         type: string
         default: 'javascript'
+      qls-profile:
+        description: 'The CodeQL QLS profile to use (e.g., security-and-quality, security-extended)'
+        required: false
+        type: string
+        default: 'security-and-quality'
+      include:
+        description: 'Glob pattern(s) to include files (comma-separated or repeat input)'
+        required: false
+        type: string
+      exclude:
+        description: 'Glob pattern(s) to exclude files (comma-separated or repeat input)'
+        required: false
+        type: string
     # Define secrets the calling workflow must provide
     secrets:
       token:
@@ -53,22 +70,101 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Filter Files Based on Include/Exclude Patterns
+        id: filter-files
+        run: |
+          # Create a temporary directory to hold filtered files
+          mkdir -p filtered-repo
+
+          # Function to check if a file matches any pattern
+          matches_pattern() {
+            local file="$1"
+            local patterns="$2"
+
+            if [ -z "$patterns" ]; then
+              return 1  # No patterns means no match
+            fi
+
+            # Convert comma-separated patterns to array
+            IFS=',' read -ra PATTERN_ARRAY <<< "$patterns"
+            for pattern in "${PATTERN_ARRAY[@]}"; do
+              # Remove leading/trailing whitespace
+              pattern=$(echo "$pattern" | xargs)
+              if [[ "$file" == $pattern ]]; then
+                return 0  # Match found
+              fi
+            done
+            return 1  # No match
+          }
+
+          # Get all files in the repository
+          find . -type f -name "*" | while read -r file; do
+            # Remove leading './' from file path
+            file="${file#./}"
+
+            # Skip if file is in .git directory or other common non-source directories
+            if [[ "$file" == .git/* ]] || [[ "$file" == .github/* ]] || [[ "$file" == node_modules/* ]]; then
+              continue
+            fi
+
+            should_include=true
+
+            # Check exclude patterns first
+            if [ -n "${{ inputs.exclude }}" ]; then
+              if matches_pattern "$file" "${{ inputs.exclude }}"; then
+                should_include=false
+              fi
+            fi
+
+            # Check include patterns (if specified, only include matching files)
+            if [ -n "${{ inputs.include }}" ] && [ "$should_include" = true ]; then
+              if ! matches_pattern "$file" "${{ inputs.include }}"; then
+                should_include=false
+              fi
+            fi
+
+            # Copy file to filtered directory if it should be included
+            if [ "$should_include" = true ]; then
+              # Create directory structure
+              mkdir -p "filtered-repo/$(dirname "$file")"
+              # Copy file
+              cp "$file" "filtered-repo/$file"
+              echo "Including: $file"
+            else
+              echo "Excluding: $file"
+            fi
+          done
+
+          # Count filtered files
+          file_count=$(find filtered-repo -type f | wc -l)
+          echo "Total files after filtering: $file_count"
+
+          # Set output for next step
+          echo "filtered-path=$(pwd)/filtered-repo" >> $GITHUB_OUTPUT
+
       - name: Setup CodeQL CLI
         id: initialize
         uses: github/codeql-action/init@v3
         with:
-          # Use the language from the workflow inputs
           languages: ${{ inputs.language }}
 
       - name: Create CodeQL Database
         run: |
-          ${{ steps.initialize.outputs.codeql-path }} database create codeql-db --language=${{ inputs.language }}
+          echo "Creating CodeQL database from filtered files..."
+          echo "Filtered files location: ${{ steps.filter-files.outputs.filtered-path }}"
+
+          # Change to the filtered directory
+          cd "${{ steps.filter-files.outputs.filtered-path }}"
+
+          # Create CodeQL database
+          ${{ steps.initialize.outputs.codeql-path }} database create ../codeql-db --language=${{ inputs.language }} --source-root=.
+
+          # Move back to original directory
+          cd ..
 
       - name: Analyze with CodeQL CLI
-        env:
-          CODEQL_JAVA_HEAP_SIZE: 4096M
         run: |
-          ${{ steps.initialize.outputs.codeql-path }} database analyze codeql-db --format=sarif-latest --output=results.sarif ${{ inputs.language }}-security-and-quality.qls
+          ${{ steps.initialize.outputs.codeql-path }} database analyze codeql-db --ram=4000 --format=sarif-latest --output=results.sarif ${{ inputs.language }}-${{ inputs.qls-profile }}.qls
 
       - name: Process SARIF and Create Issues
         uses: actions/github-script@v7
