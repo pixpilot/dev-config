@@ -209,6 +209,7 @@ export default {
 - Prettier 3.6+
 - TypeScript 5.0+
 - Jest (optional, for testing support)
+- Markdownlint cli (optional)
 
 ## License
 
