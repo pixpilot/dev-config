@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/pixpilot/dev-config/compare/v1.4.4...v1.4.5) (2025-07-12)
+
+
+### Bug Fixes
+
+* update dependencies for @eslint/js, @types/node, @typescript-eslint/utils, jest, prettier, and semantic-release ([a172987](https://github.com/pixpilot/dev-config/commit/a17298753767a8d20e60d926b0a681db814989e7))
+
 ## [1.4.4](https://github.com/pixpilot/dev-config/compare/v1.4.3...v1.4.4) (2025-07-12)
 
 
