@@ -1,4 +1,8 @@
 # This file is MIT licensed. See LICENSE in the repository.
+# ------------------------------------------------------------
+# NOTE: For most repositories, you should strongly consider using GitHub's official code security tools
+# (such as CodeQL and Dependabot), which are free for public repositories.
+# See https://github.com/features/security for details.
 #
 # DISCLAIMER:
 # This workflow is a community-developed tool and is not affiliated with, endorsed by, or officially supported by GitHub or the CodeQL team.
