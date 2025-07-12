@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/pixpilot/dev-config/compare/v1.4.5...v1.4.6) (2025-07-12)
+
+
+### Bug Fixes
+
+* update create-github-app-token action to version 2 ([83e97c5](https://github.com/pixpilot/dev-config/commit/83e97c5306884aa418eec28377664fd2ab3f85f0))
+
 ## [1.4.5](https://github.com/pixpilot/dev-config/compare/v1.4.4...v1.4.5) (2025-07-12)
 
 
