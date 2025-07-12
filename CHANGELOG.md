@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/pixpilot/dev-config/compare/v1.4.3...v1.4.4) (2025-07-12)
+
+
+### Bug Fixes
+
+* update @eslint/compat dependency to version 1.3.1 ([cf6bbbe](https://github.com/pixpilot/dev-config/commit/cf6bbbee0319ff4f98157120c08d83f0f9fdf2a1))
+
 ## [1.4.4-rc.2](https://github.com/pixpilot/dev-config/compare/v1.4.4-rc.1...v1.4.4-rc.2) (2025-07-11)
 
 
