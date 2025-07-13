@@ -1,4 +1,4 @@
-import type { PrettierConfig } from './types.d.ts';
+import type { PrettierConfig } from './types/types.d.ts';
 
 const config: PrettierConfig = {
   // Line length and formatting

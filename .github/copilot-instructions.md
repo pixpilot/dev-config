@@ -1,77 +1,59 @@
-## General Guidelines
+## **General Guidelines**
 
-- **Package Manager**: Only use `pnpm` for installing or managing dependencies within this project's actual source code. However, for all `README.md` and other documentation files, always use `npm` commands (`npm add -D ...`) for user-facing examples.
-- **File Naming**: When creating a new configuration, the file name in the repository should correspond to the entry point specified in the documentation (e.g., a config for `eslint-foo` would be accessed via `@pixpilot/dev-config/eslint-foo`).
+- **Package Manager**: Only use `pnpm` for installing or managing dependencies within this project's actual source code. However, for all `README.md` and other documentation files, always use `npm` commands (`npm install -D ...`) for user-facing examples.
+- **File Naming**: When creating a new configuration, the file name in the repository must correspond to the entry point specified in the documentation (e.g., a config for `eslint-foo` would be located at `eslint-foo.js` and accessed via `@pixpilot/dev-config/eslint-foo`).
 
 ---
 
-## README.md Documentation Structure
+## **README.md Documentation Structure**
 
-When you're asked to add a new ESLint configuration to the documentation, you must follow the structure below precisely. The new configuration should be added under the "Individual Configurations" section in `README.md`.
+The `README.md` follows a modular, **step-by-step structure**. new configurations are presented as **"add-ons"** to a core setup.
 
-### New ESLint Configuration Template
+When asked to add a new configuration, you must add it as a new subsection within the `#### Step 2: Add Features (As Needed)` section. You must also update the `## 📋 Example Setups` section to reflect a common use case with the new feature.
 
-Use this template for any new ESLint-related configuration.
+### **New Feature Add-on Template**
+
+Use this template for any new configuration.
 
 ````markdown
-### ESLint [Tool Name]
+##### [Emoji] Add [Feature Name]
 
-[A brief, one-sentence description of what the tool/plugin does and why it's used.]
+1.  **Install [Feature] dependencies:**
+    ```bash
+    npm install -D package-name-1 package-name-2
+    ```
+2.  **Update `eslint.config.js`:** Add the [Feature] config.
 
-**Requirements:**
+    ```javascript
+    import baseConfig from '@pixpilot/dev-config/eslint';
+    import featureConfig from '@pixpilot/dev-config/eslint-[feature]'; // 👈 Add this
+    // ... other imports
+    import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
 
-- `package-name-1`
-- `package-name-2`
-- ...
+    export default [
+      ...baseConfig,
+      // ... other configs
+      ...featureConfig, // 👈 Add this
+      ...prettierConfig, // Prettier must be last
+    ];
+    ```
 
-**Individual usage:**
-
-```bash
-npm add -D [list all required packages here]
-```
+3.  ##### **Create `[new-config-file.js]`** (if applicable)
+    ```javascript
+    // Content of the new config file
+    ```
 ````
 
-```javascript
-// Example: eslint.config.js
-import [configName]Config from '@pixpilot/dev-config/eslint-[tool-name]';
-import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
+### **Updating Example Setups**
 
-export default [
-  ...[configName]Config,
-  ...prettierConfig, // Always last
-];
-```
+After adding the new feature in "Step 2", you must also update the `## 📋 Example Setups` section. Add a new example or update an existing one to show a common real-world combination that includes your new feature.
 
-**Combined with base config:**
+For example, if adding a Storybook config, you might add a **"Next.js + Jest + Storybook Project"** example, showing the complete combined installation command and the final `eslint.config.js`.
 
-```javascript
-// Example: eslint.config.js
-import baseConfig from '@pixpilot/dev-config/eslint';
-import [configName]Config from '@pixpilot/dev-config/eslint-[tool-name]';
-import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
+### **Explanation of Template Fields**
 
-export default [
-  ...baseConfig,
-  ...[configName]Config,
-  ...prettierConfig, // Always last
-];
-```
-
-````
-
-### Explanation of Template Fields
-
-1.  **Heading (`### ESLint [Tool Name]`)**: The heading must start with "ESLint" followed by the capitalized name of the tool (e.g., "ESLint React", "ESLint Jest").
-2.  **Description**: Provide a concise, user-friendly description of the configuration's purpose.
-3.  **Requirements**: List all `npm` packages required for this specific configuration to work. Do not include packages that are part of the base setup (like `eslint` or `typescript`).
-4.  **Individual usage**:
-    * Show the `npm add -D` command with all the required packages for a standalone setup.
-    * Provide a basic `eslint.config.js` example showing how to use the configuration on its own. It should almost always include the `prettierConfig` at the end.
-5.  **Combined with base config**:
-    * Provide a more common `eslint.config.js` example showing how the new configuration is added alongside the `baseConfig`.
-    * Ensure the import statement is clear (`import [configName]Config from '@pixpilot/dev-config/eslint-[tool-name]';`).
-    * The final exported array should always have `...baseConfig` first and `...prettierConfig` last for consistency.
-
-By following this structure, you will ensure that any new documentation you generate seamlessly integrates with the existing `README.md` file.
-```
-````
+1.  **Heading (`##### [Emoji] Add [Feature Name]`)**: The heading must be a level 5 heading (`#####`) and start with a relevant emoji, the word "Add", and the feature's capitalized name (e.g., "🧪 Add Jest for Testing").
+2.  **Dependencies**: List only the **additional** `npm` packages required for this specific feature. Do not include packages from the core setup (like `eslint`, `typescript`, `prettier`).
+3.  **Update `eslint.config.js`**: Show the user how to modify their existing `eslint.config.js`. You must show the complete file for context, using `// 👈 Add this` comments to highlight the new import statement and the new entry in the exported array. Ensure the feature config is placed before `prettierConfig`.
+4.  **Create New Config File**: If the feature requires a new root-level configuration file (e.g., `jest.config.js`), add a level 5 heading for it (`##### Create [filename]`) and provide its content. If no new file is needed, omit this step.
+5.  **Example Setups**: This is a mandatory step. You must demonstrate how the new feature integrates into a complete project setup by updating this section. This provides users with a clear, copy-pasteable example.
