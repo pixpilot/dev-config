@@ -7,15 +7,24 @@ Modern, opinionated configurations for TypeScript/JavaScript projects including 
 ## Quick Start
 
 ```bash
-npm install -D @pixpilot/dev-config
-npm install -D eslint prettier typescript
+# Base installation (always required)
+pnpm add -D @pixpilot/dev-config eslint typescript typescript-eslint
 ```
 
 **Optional dependencies:**
 
 ```bash
-# For Jest support
-npm install -D jest
+# Prettier support
+pnpm add -D prettier eslint-config-prettier
+
+# React support (optional)
+pnpm add -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
+
+# Accessibility support (optional)
+pnpm add -D eslint-plugin-jsx-a11y
+
+# Jest support (optional)
+pnpm add -D jest eslint-plugin-jest
 ```
 
 ## Configuration
@@ -32,16 +41,16 @@ Create `eslint.config.js`:
 
 ```javascript
 import baseConfig from '@pixpilot/dev-config/eslint';
-import reactConfig from '@pixpilot/dev-config/eslint-react';
 import jestConfig from '@pixpilot/dev-config/eslint-jest';
 import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
-import eslintConfigPrettier from 'eslint-config-prettier
+import reactConfig from '@pixpilot/dev-config/eslint-react';
+import jsxA11yConfig from '@pixpilot/dev-config/eslint-jsx-a11y';
 
 export default [
   ...baseConfig,
-  ...reactConfig,
-  ...jsxA11yConfig,
   ...jestConfig,
+  ...reactConfig, // Optional: add for React projects
+  ...jsxA11yConfig, // Optional: add for accessibility rules
   ...eslintConfigPrettier, // Always last
 ];
 ```
