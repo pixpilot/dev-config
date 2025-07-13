@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/pixpilot/dev-config/compare/v1.5.2...v1.6.0) (2025-07-13)
+
+
+### Features
+
+* add support for Next.js ESLint plugin and update documentation ([ed074fc](https://github.com/pixpilot/dev-config/commit/ed074fcb2e19a258f10e5b7019db33ecd3c6e099))
+
 ## [1.5.2](https://github.com/pixpilot/dev-config/compare/v1.5.1...v1.5.2) (2025-07-13)
 
 
