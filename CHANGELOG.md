@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/pixpilot/dev-config/compare/v1.6.0...v1.6.1) (2025-07-13)
+
+
+### Bug Fixes
+
+* remove accessibility config from ESLint setup for React ([00caa83](https://github.com/pixpilot/dev-config/commit/00caa83e4c8d3aff0606db78f679014fe75c1966))
+
 # [1.6.0](https://github.com/pixpilot/dev-config/compare/v1.5.2...v1.6.0) (2025-07-13)
 
 
