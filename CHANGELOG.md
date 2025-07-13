@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/pixpilot/dev-config/compare/v1.5.0...v1.5.1) (2025-07-13)
+
+
+### Bug Fixes
+
+* deps ([361411b](https://github.com/pixpilot/dev-config/commit/361411b3ee17bb4eb3c7ce9cdacaaec97df65dc8))
+
 # [1.5.0](https://github.com/pixpilot/dev-config/compare/v1.4.7...v1.5.0) (2025-07-13)
 
 
