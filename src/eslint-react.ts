@@ -3,8 +3,6 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 
-import jsxA11yConfig from './eslint-jsx-a11y';
-
 /**
  * ESLint configuration for React projects using TypeScript.
  *
@@ -25,8 +23,6 @@ import jsxA11yConfig from './eslint-jsx-a11y';
  * Formatting is intentionally excluded—use Prettier for code style.
  */
 const config: TSESLint.FlatConfig.ConfigArray = [
-  // ...spread accessibility config first for correct plugin registration...
-  ...jsxA11yConfig,
   {
     files: ['**/*.{js,jsx,ts,tsx}'], // Supports JS & TS React code
     plugins: {
