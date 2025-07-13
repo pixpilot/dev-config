@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/pixpilot/dev-config/compare/v1.5.1...v1.5.2) (2025-07-13)
+
+
+### Bug Fixes
+
+* update README formatting for installation instructions ([e832f22](https://github.com/pixpilot/dev-config/commit/e832f223b000da4afbd37de7db1d4bc2ce299be7))
+
 ## [1.5.1](https://github.com/pixpilot/dev-config/compare/v1.5.0...v1.5.1) (2025-07-13)
 
 
