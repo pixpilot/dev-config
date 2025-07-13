@@ -165,7 +165,7 @@ Here is how the final configuration would look for common project types.
     ];
     ```
 
-    _(Remember to also create [`prettier.config.js`](https://www.google.com/search?q=%23create-prettierconfigjs), [`tsconfig.json`](https://www.google.com/search?q=%23create-tsconfigjson), and [`jest.config.js`](https://www.google.com/search?q=%23create-jestconfigjs) from the steps above)._
+    _(Remember to also create [`prettier.config.js`](#create-prettierconfigjs), [`tsconfig.json`](#create-tsconfigjson), and [`jest.config.js`](#create-jestconfigjs) from the steps above)._
 
 #### **React + Jest Project**
 
@@ -193,7 +193,7 @@ Here is how the final configuration would look for common project types.
     ];
     ```
 
-    _(Remember to also create [`prettier.config.js`](https://www.google.com/search?q=%23create-prettierconfigjs), [`tsconfig.json`](https://www.google.com/search?q=%23create-tsconfigjson), and [`jest.config.js`](https://www.google.com/search?q=%23create-jestconfigjs) from the steps above)._
+    _(Remember to also create [`prettier.config.js`](#create-prettierconfigjs), [`tsconfig.json`](#create-tsconfigjson), and [`jest.config.js`](#create-jestconfigjs) from the steps above)._
 
 #### **Next.js + Jest Project**
 
@@ -223,7 +223,7 @@ Here is how the final configuration would look for common project types.
     ];
     ```
 
-    _(Remember to also create [`prettier.config.js`](https://www.google.com/search?q=%23create-prettierconfigjs), [`tsconfig.json`](https://www.google.com/search?q=%23create-tsconfigjson), and [`jest.config.js`](https://www.google.com/search?q=%23create-jestconfigjs) from the steps above)._
+    _(Remember to also create [`prettier.config.js`](#create-prettierconfigjs), [`tsconfig.json`](#create-tsconfigjson), and [`jest.config.js`](#create-jestconfigjs) from the steps above)._
 
 ---
 
