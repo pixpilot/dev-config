@@ -20,29 +20,31 @@ npm install -D jest
 
 ## Configuration
 
-### ESLint
+### All-in-One Setup (Recommended)
+
+For a complete setup with all configurations:
+
+```bash
+npm add -D @pixpilot/dev-config eslint prettier typescript eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-react-refresh eslint-config-prettier jest ts-jest markdownlint-cli eslint-plugin-jest
+```
 
 Create `eslint.config.js`:
 
 ```javascript
-import config from '@pixpilot/dev-config/eslint';
-export default config;
-```
-
-### ESLint + Jest
-
-For projects with tests:
-
-```javascript
-import config from '@pixpilot/dev-config/eslint';
+import baseConfig from '@pixpilot/dev-config/eslint';
+import reactConfig from '@pixpilot/dev-config/eslint-react';
 import jestConfig from '@pixpilot/dev-config/eslint-jest';
+import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
+import eslintConfigPrettier from 'eslint-config-prettier
 
-export default [...config, ...jestConfig];
+export default [
+  ...baseConfig,
+  ...reactConfig,
+  ...jsxA11yConfig,
+  ...jestConfig,
+  ...eslintConfigPrettier, // Always last
+];
 ```
-
-#### ESLint + Jest: Requires Jest dependency above
-
-### Prettier
 
 Create `prettier.config.js`:
 
@@ -51,16 +53,168 @@ import config from '@pixpilot/dev-config/prettier';
 export default config;
 ```
 
-### TypeScript
-
 Create `tsconfig.json`:
 
 ```json
 {
   "extends": "@pixpilot/dev-config/typescript",
   "compilerOptions": {
-    // "module": "ES2022",
-    // "moduleResolution": "Node",
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+Create `jest.config.js`:
+
+```javascript
+import config from '@pixpilot/dev-config/jest';
+export default config;
+```
+
+## Individual Configurations
+
+### ESLint (Base)
+
+ESLint configuration for TypeScript projects with import sorting and type-checking.
+
+**Requirements:**
+
+- `eslint`
+- `prettier`
+- `typescript`
+- `eslint-config-prettier`
+- `eslint-plugin-import`
+
+**Individual usage:**
+
+```bash
+npm add -D @pixpilot/dev-config eslint prettier typescript eslint-config-prettier eslint-plugin-import
+```
+
+```javascript
+import config from '@pixpilot/dev-config/eslint';
+export default config;
+```
+
+**Combined with other configs:**
+
+```javascript
+import baseConfig from '@pixpilot/dev-config/eslint';
+import reactConfig from '@pixpilot/dev-config/eslint-react';
+
+export default [...baseConfig, ...reactConfig];
+```
+
+### ESLint React
+
+ESLint configuration for React projects using TypeScript.
+
+**Requirements:**
+
+- `eslint-plugin-react`
+- `eslint-plugin-react-hooks`
+- `eslint-plugin-jsx-a11y`
+- `eslint-plugin-react-refresh`
+
+**Individual usage:**
+
+```bash
+npm add -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-react-refresh
+```
+
+```javascript
+import config from '@pixpilot/dev-config/eslint-react';
+export default config;
+```
+
+**Combined with base config:**
+
+```javascript
+import baseConfig from '@pixpilot/dev-config/eslint';
+import reactConfig from '@pixpilot/dev-config/eslint-react';
+
+export default [...baseConfig, ...reactConfig];
+```
+
+### ESLint Jest
+
+ESLint configuration for Jest testing files.
+
+**Requirements:**
+
+- `eslint-plugin-jest`
+
+**Individual usage:**
+
+```bash
+npm add -D eslint-plugin-jest
+```
+
+```javascript
+import config from '@pixpilot/dev-config/eslint-jest';
+export default config;
+```
+
+**Combined with other configs:**
+
+```javascript
+import baseConfig from '@pixpilot/dev-config/eslint';
+import jestConfig from '@pixpilot/dev-config/eslint-jest';
+
+export default [...baseConfig, ...jestConfig];
+```
+
+### ESLint Prettier
+
+ESLint configuration that disables rules conflicting with Prettier.
+
+**Requirements:**
+
+- `eslint-config-prettier`
+
+**Individual usage:**
+
+```bash
+npm add -D eslint-config-prettier
+```
+
+```javascript
+import config from '@pixpilot/dev-config/eslint-prettier';
+export default config;
+```
+
+**Combined with other configs (should be last):**
+
+```javascript
+import baseConfig from '@pixpilot/dev-config/eslint';
+import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
+
+export default [
+  ...baseConfig,
+  ...prettierConfig, // Always last
+];
+```
+
+### Prettier
+
+Consistent code formatting with sensible defaults.
+
+```javascript
+import config from '@pixpilot/dev-config/prettier';
+export default config;
+```
+
+### TypeScript
+
+Optimized TypeScript configuration for bundlers (Vite, Webpack) with ES2022 modules.
+
+```json
+{
+  "extends": "@pixpilot/dev-config/typescript",
+  "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"
   },
@@ -71,26 +225,40 @@ Create `tsconfig.json`:
 
 ### Jest
 
-Create `jest.config.js`:
+ESM support, ts-jest transform, 80% coverage threshold.
+
+**Requirements:**
+
+- `jest`
+- `ts-jest`
+
+**Individual usage:**
+
+```bash
+npm add -D jest ts-jest
+```
 
 ```javascript
 import config from '@pixpilot/dev-config/jest';
 export default config;
 ```
 
-#### Jest: Requires Jest dependency above
+**Combined with other configs:**
+
+```javascript
+import baseConfig from '@pixpilot/dev-config/eslint';
+import jestConfig from '@pixpilot/dev-config/eslint-jest';
+
+export default [...baseConfig, ...jestConfig];
+```
 
 ### Markdownlint
 
-A pre-configured `markdownlint.json` is included.
-
-**Usage:**
+Pre-configured markdownlint rules for consistent documentation formatting.
 
 ```bash
 npm add -D markdownlint-cli
 ```
-
-To extend, use:
 
 ```json
 {
@@ -98,7 +266,33 @@ To extend, use:
 }
 ```
 
-_You can customize rules by editing your own config as needed._
+### ESLint JSX A11y
+
+ESLint accessibility rules for React/JS/TS projects via eslint-plugin-jsx-a11y.
+
+**Requirements:**
+
+- `eslint-plugin-jsx-a11y`
+
+**Individual usage:**
+
+```bash
+npm add -D eslint-plugin-jsx-a11y
+```
+
+```javascript
+import config from '@pixpilot/dev-config/eslint-jsx-a11y';
+export default config;
+```
+
+**Combined with other configs:**
+
+```javascript
+import baseConfig from '@pixpilot/dev-config/eslint';
+import jsxA11yConfig from '@pixpilot/dev-config/eslint-jsx-a11y';
+
+export default [...baseConfig, ...jsxA11yConfig];
+```
 
 ## GitHub Workflows
 
@@ -133,11 +327,11 @@ jobs:
     secrets:
       RELEASER_ID: ${{ secrets.RELEASER_ID }}
       RELEASER_PRIVATE_KEY: ${{ secrets.RELEASER_PRIVATE_KEY }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      npm_TOKEN: ${{ secrets.npm_TOKEN }}
 ```
 
 - See [this gist](https://gist.github.com/0xernesto/a8065cce55940e6ccc523664a87ee9bc) for setup instructions, including GitHub App creation and secret configuration.
-- Required secrets: `RELEASER_ID`, `RELEASER_PRIVATE_KEY`, `NPM_TOKEN` (see gist for details).
+- Required secrets: `RELEASER_ID`, `RELEASER_PRIVATE_KEY`, `npm_TOKEN` (see gist for details).
 
 ## Features
 
@@ -161,7 +355,7 @@ jobs:
 }
 ```
 
-### NPM packages
+### npm packages
 
 ```json
 {

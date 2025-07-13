@@ -6,7 +6,6 @@ import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import type { TSESLint } from '@typescript-eslint/utils';
 // This is the new dependency to add
-import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import tseslint from 'typescript-eslint';
 
@@ -75,8 +74,6 @@ const config: TSESLint.FlatConfig.ConfigArray = tseslint.config(
       ...tseslint.configs.recommended,
       ...tseslint.configs.recommendedTypeChecked,
       ...tseslint.configs.stylisticTypeChecked,
-      // Add eslint-config-prettier at the end to override other configs
-      eslintConfigPrettier,
     ],
     rules: {
       // `"prettier/prettier": "error"` is removed. Run Prettier separately.
