@@ -16,5 +16,17 @@ const config: PrettierConfig = {
   bracketSameLine: false, // Arrow functions and line endings
   arrowParens: 'always',
   endOfLine: 'lf',
+  overrides: [
+    {
+      files: ['*.json', 'tsconfig*.json'],
+      options: {
+        printWidth: 100,
+        semi: false,
+        singleQuote: false,
+        trailingComma: 'none',
+        arrowParens: 'avoid',
+      },
+    },
+  ],
 };
 export default config;
