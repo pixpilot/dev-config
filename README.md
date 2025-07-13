@@ -9,31 +9,31 @@ Modern, opinionated configurations for TypeScript/JavaScript projects including 
 Base installation (always required)
 
 ```bash
-npm add -D @pixpilot/dev-config eslint typescript typescript-eslint
+npm install -D @pixpilot/dev-config eslint typescript typescript-eslint
 ```
 
 Prettier support
 
 ```bash
-npm add -D prettier eslint-config-prettier
+npm install -D prettier eslint-config-prettier
 ```
 
 React support (optional)
 
 ```bash
-npm add -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
+npm install -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
 ```
 
 Accessibility support (optional)
 
 ```bash
-npm add -D eslint-plugin-jsx-a11y
+npm install -D eslint-plugin-jsx-a11y
 ```
 
 Jest support (optional)
 
 ```bash
-npm add -D jest eslint-plugin-jest
+npm install -D jest eslint-plugin-jest
 ```
 
 ## Configuration
@@ -43,7 +43,7 @@ npm add -D jest eslint-plugin-jest
 For a complete setup with all configurations:
 
 ```bash
-npm add -D @pixpilot/dev-config eslint prettier typescript typescript-eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-react-refresh eslint-config-prettier jest ts-jest markdownlint-cli eslint-plugin-jest
+npm install -D @pixpilot/dev-config eslint prettier typescript typescript-eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y eslint-plugin-react-refresh eslint-config-prettier jest ts-jest markdownlint-cli eslint-plugin-jest
 ```
 
 Create `eslint.config.js`:
@@ -109,7 +109,7 @@ ESLint configuration for TypeScript projects with import sorting and type-checki
 **Individual usage:**
 
 ```bash
-npm add -D @pixpilot/dev-config eslint prettier typescript typescript-eslint eslint-config-prettier
+npm install -D @pixpilot/dev-config eslint prettier typescript typescript-eslint eslint-config-prettier
 ```
 
 ```javascript
@@ -135,7 +135,7 @@ ESLint configuration for React projects using TypeScript.
 **Individual usage:**
 
 ```bash
-npm add -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
+npm install -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh
 ```
 
 **Combined with base config:**
@@ -159,7 +159,7 @@ ESLint configuration for Jest testing files.
 **Individual usage:**
 
 ```bash
-npm add -D eslint-plugin-jest
+npm install -D eslint-plugin-jest
 ```
 
 **Combined with other configs:**
@@ -183,7 +183,7 @@ ESLint configuration that disables rules conflicting with Prettier.
 **Individual usage:**
 
 ```bash
-npm add -D eslint-config-prettier
+npm install -D eslint-config-prettier
 ```
 
 **Combined with other configs (should be last):**
@@ -209,7 +209,7 @@ ESLint accessibility rules for React/JS/TS projects via eslint-plugin-jsx-a11y.
 **Individual usage:**
 
 ```bash
-npm add -D eslint-plugin-jsx-a11y
+npm install -D eslint-plugin-jsx-a11y
 ```
 
 ```javascript
@@ -241,7 +241,7 @@ Consistent code formatting with sensible defaults.
 **Individual usage:**
 
 ```bash
-npm add -D prettier eslint-config-prettier
+npm install -D prettier eslint-config-prettier
 ```
 
 ```javascript
@@ -265,7 +265,7 @@ Optimized TypeScript configuration for bundlers (Vite, Webpack) with ES2022 modu
 **Individual usage:**
 
 ```bash
-npm add -D typescript
+npm install -D typescript
 ```
 
 ```json
@@ -292,7 +292,7 @@ ESM support, ts-jest transform, 80% coverage threshold.
 **Individual usage:**
 
 ```bash
-npm add -D jest ts-jest
+npm install -D jest ts-jest
 ```
 
 ```javascript
@@ -305,7 +305,7 @@ export default config;
 Pre-configured markdownlint rules for consistent documentation formatting.
 
 ```bash
-npm add -D markdownlint-cli
+npm install -D markdownlint-cli
 ```
 
 ```json
