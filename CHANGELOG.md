@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/pixpilot/dev-config/compare/v1.4.7...v1.5.0) (2025-07-13)
+
+
+### Bug Fixes
+
+* update lock file ([dec4e7c](https://github.com/pixpilot/dev-config/commit/dec4e7c3991fb04c837822d472167b235c3ceba8))
+
+
+### Features
+
+* update ESLint configurations and add accessibility support ([82d1ed9](https://github.com/pixpilot/dev-config/commit/82d1ed9897cfac2824fe8dcf12cb747a26cc690e))
+
 ## [1.4.7](https://github.com/pixpilot/dev-config/compare/v1.4.6...v1.4.7) (2025-07-12)
 
 
