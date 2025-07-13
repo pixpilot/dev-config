@@ -1,67 +1,77 @@
-# Copilot Instructions
+## General Guidelines
 
-- Only use pnpm for installing or managing dependencies in this project. Do not use npm, yarn, or any other package manager.
+- **Package Manager**: Only use `pnpm` for installing or managing dependencies within this project's actual source code. However, for all `README.md` and other documentation files, always use `npm` commands (`npm add -D ...`) for user-facing examples.
+- **File Naming**: When creating a new configuration, the file name in the repository should correspond to the entry point specified in the documentation (e.g., a config for `eslint-foo` would be accessed via `@pixpilot/dev-config/eslint-foo`).
 
-## Documentation Organization Guidelines
+---
 
-When organizing the README.md Configuration section, follow this structure:
+## README.md Documentation Structure
 
-### 1. Configuration Section Structure
+When you're asked to add a new ESLint configuration to the documentation, you must follow the structure below precisely. The new configuration should be added under the "Individual Configurations" section in `README.md`.
 
-```markdown
-## Configuration
+### New ESLint Configuration Template
 
-### All-in-One Setup (Recommended)
-
-- Show complete setup with all dependencies
-- Provide example config files for all tools
-- Use npm commands only
-
-## Individual Configurations
-
-### [Tool Name] ([Subcategory if applicable])
-
-- Brief description of what the config provides
-- **Requirements:** section listing all dependencies
-- **Individual usage:** section with install command and standalone usage
-- **Combined usage:** section showing how to merge with other configs
-```
-
-### 2. Individual Config Section Template
-
-Each config should follow this exact template:
+Use this template for any new ESLint-related configuration.
 
 ````markdown
-### [Config Name]
+### ESLint [Tool Name]
 
-[Brief description of functionality]
+[A brief, one-sentence description of what the tool/plugin does and why it's used.]
 
 **Requirements:**
 
 - `package-name-1`
 - `package-name-2`
-- `package-name-3`
+- ...
 
 **Individual usage:**
 
 ```bash
-npm add -D [all-required-packages]
+npm add -D [list all required packages here]
 ```
 ````
 
 ```javascript
-import config from '@pixpilot/dev-config/[config-name]';
-export default config;
+// Example: eslint.config.js
+import [configName]Config from '@pixpilot/dev-config/eslint-[tool-name]';
+import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
+
+export default [
+  ...[configName]Config,
+  ...prettierConfig, // Always last
+];
 ```
 
-**Combined with other configs:**
+**Combined with base config:**
 
 ```javascript
+// Example: eslint.config.js
 import baseConfig from '@pixpilot/dev-config/eslint';
-import [configName] from '@pixpilot/dev-config/[config-name]';
+import [configName]Config from '@pixpilot/dev-config/eslint-[tool-name]';
+import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
 
 export default [
   ...baseConfig,
-  ...[configName],
+  ...[configName]Config,
+  ...prettierConfig, // Always last
 ];
 ```
+
+````
+
+### Explanation of Template Fields
+
+1.  **Heading (`### ESLint [Tool Name]`)**: The heading must start with "ESLint" followed by the capitalized name of the tool (e.g., "ESLint React", "ESLint Jest").
+2.  **Description**: Provide a concise, user-friendly description of the configuration's purpose.
+3.  **Requirements**: List all `npm` packages required for this specific configuration to work. Do not include packages that are part of the base setup (like `eslint` or `typescript`).
+4.  **Individual usage**:
+    * Show the `npm add -D` command with all the required packages for a standalone setup.
+    * Provide a basic `eslint.config.js` example showing how to use the configuration on its own. It should almost always include the `prettierConfig` at the end.
+5.  **Combined with base config**:
+    * Provide a more common `eslint.config.js` example showing how the new configuration is added alongside the `baseConfig`.
+    * Ensure the import statement is clear (`import [configName]Config from '@pixpilot/dev-config/eslint-[tool-name]';`).
+    * The final exported array should always have `...baseConfig` first and `...prettierConfig` last for consistency.
+
+By following this structure, you will ensure that any new documentation you generate seamlessly integrates with the existing `README.md` file.
+```
+````
