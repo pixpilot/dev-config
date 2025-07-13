@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/pixpilot/dev-config/compare/v1.4.6...v1.4.7) (2025-07-12)
+
+
+### Bug Fixes
+
+* trigger semantic-release ([79eaa47](https://github.com/pixpilot/dev-config/commit/79eaa471671a93bfe2a1b92d6b19b502644ebdcf))
+
 ## [1.4.7-rc.1](https://github.com/pixpilot/dev-config/compare/v1.4.6...v1.4.7-rc.1) (2025-07-12)
 
 
