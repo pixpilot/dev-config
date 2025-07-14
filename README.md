@@ -113,6 +113,41 @@ Now, add support for testing, React, or Next.js.
     ];
     ```
 
+##### **⚡ Add Vite for Bundling**
+
+1.  **Install Vite dependencies:**
+
+    ```bash
+    npm install -D vite vite-plugin-dts
+    ```
+
+2.  **Update `eslint.config.js`:** Add the Vite config.
+
+    ```javascript
+    import baseConfig from '@pixpilot/dev-config/eslint';
+    import viteConfig from '@pixpilot/dev-config/eslint-vite'; // 👈 Add this
+    // ... other configs like Jest, React, etc.
+    import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
+
+    export default [
+      ...baseConfig,
+      // ... other configs
+      ...viteConfig, // 👈 Add this
+      ...prettierConfig, // Prettier must be last
+    ];
+    ```
+
+3.  ##### **Create `vite.config.ts`**
+
+    ```typescript
+    import { createViteConfig } from '@pixpilot/dev-config/vite';
+
+    export default createViteConfig({
+      entry: './src/index.ts',
+      external: ['react', 'react-dom'], // Add any external dependencies
+    });
+    ```
+
 ##### **🌐 Add Next.js**
 
 1.  **Install Next.js dependencies:**
@@ -224,6 +259,30 @@ Here is how the final configuration would look for common project types.
     ```
 
     _(Remember to also create [`prettier.config.js`](#create-prettierconfigjs), [`tsconfig.json`](#create-tsconfigjson), and [`jest.config.js`](#create-jestconfigjs) from the steps above)._
+
+#### **Vite + TypeScript Library Project**
+
+1.  **Combined Installation:**
+
+    ```bash
+    npm install -D @pixpilot/dev-config eslint typescript typescript-eslint prettier eslint-config-prettier vite vite-plugin-dts
+    ```
+
+2.  **Final `eslint.config.js`:**
+
+    ```javascript
+    import baseConfig from '@pixpilot/dev-config/eslint';
+    import viteConfig from '@pixpilot/dev-config/eslint-vite';
+    import prettierConfig from '@pixpilot/dev-config/eslint-prettier';
+
+    export default [
+      ...baseConfig,
+      ...viteConfig,
+      ...prettierConfig, // Always last
+    ];
+    ```
+
+    _(Remember to also create [`prettier.config.js`](#create-prettierconfigjs), [`tsconfig.json`](#create-tsconfigjson), and [`vite.config.ts`](#create-viteconfigts) from the steps above)._
 
 ---
 
