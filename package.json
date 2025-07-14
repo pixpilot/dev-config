@@ -23,7 +23,7 @@
     "build": "tsc -p tsconfig.build.json && pnpm run copy-assets",
     "copy-assets": "node scripts/copy-assets.js",
     "clean": "rimraf dist",
-    "test": "node tests/verify.js",
+    "test": "node tests/verify.mjs",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "lint:README": "markdownlint README.md",
