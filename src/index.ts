@@ -1,8 +1,10 @@
-// Re-export configurations
-export { default as eslintConfig } from './eslint.js';
-export { default as eslintJestConfig } from './eslint-jest.js';
-export { default as prettierConfig } from './prettier.js';
-export { default as jestConfig } from './jest.js';
+export * from './create-react-config';
+export * from './create-nodejs-config';
+export * from './create-nextjs-config';
 
-// Export types
-export type { TSESLint, PrettierConfig, JestConfig } from './types/types.d.ts';
+// You can still export the raw configs if you want to give users that option
+export { default as prettierConfig } from './prettier';
+export { default as baseTsConfig } from './tsconfig-base.json';
+
+// Export types if needed
+export type { TSESLint, PrettierConfig, JestConfig } from './types/types.d';
