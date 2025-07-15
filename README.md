@@ -80,7 +80,7 @@ Create `tsconfig.json` to extend the base configuration.
 
 ```json
 {
-  "extends": "@pixpilot/dev-config/typescript-base",
+  "extends": "@pixpilot/dev-config/typescript",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src"

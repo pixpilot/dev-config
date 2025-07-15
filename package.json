@@ -17,7 +17,8 @@
       "require": "./dist/*.cjs",
       "types": "./dist/*.d.ts"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./typescript": "./dist/tsconfig-base.json"
   },
   "files": [
     "dist",
@@ -126,6 +127,7 @@
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
+    "rollup": "^4.45.1",
     "rollup-plugin-copy": "^3.5.0",
     "semantic-release": "^24.2.7",
     "ts-jest": "^29.4.0",
