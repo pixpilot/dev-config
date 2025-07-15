@@ -1,3 +1,10 @@
+## [1.6.2-rc.1](https://github.com/pixpilot/dev-config/compare/v1.6.1...v1.6.2-rc.1) (2025-07-14)
+
+
+### Bug Fixes
+
+* update Prettier configuration and streamline tsconfig exclusion list ([5ff470f](https://github.com/pixpilot/dev-config/commit/5ff470fe3b6f5785028f551e6203c5c1d9f19455))
+
 ## [1.6.1](https://github.com/pixpilot/dev-config/compare/v1.6.0...v1.6.1) (2025-07-13)
 
 
