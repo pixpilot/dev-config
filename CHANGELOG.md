@@ -1,3 +1,15 @@
+# [1.7.0-rc.1](https://github.com/pixpilot/dev-config/compare/v1.6.2-rc.1...v1.7.0-rc.1) (2025-07-15)
+
+
+### Bug Fixes
+
+* update TypeScript configuration path in README and package.json ([de3e17b](https://github.com/pixpilot/dev-config/commit/de3e17bdec8175e67ab54de19a92147478753f3b))
+
+
+### Features
+
+* update pnpm-lock.yaml with new dependencies and versions ([7ea5300](https://github.com/pixpilot/dev-config/commit/7ea5300f154057506e36463ab26ba81c62f2715f))
+
 ## [1.6.2-rc.1](https://github.com/pixpilot/dev-config/compare/v1.6.1...v1.6.2-rc.1) (2025-07-14)
 
 
