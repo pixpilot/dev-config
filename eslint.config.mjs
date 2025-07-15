@@ -2,16 +2,10 @@ import { createJiti } from 'jiti';
 import { fileURLToPath } from 'url';
 
 const jiti = createJiti(fileURLToPath(import.meta.url));
-const config = await jiti.import('./src/eslint/base.ts'); // updated to correct config file
+const { createNodejsEslintConfig } = await jiti.import(
+  './src/create-nodejs-eslint-config',
+);
 
-export default [
-  ...config.default,
-  {
-    ignores: [
-      'tests/',
-      'src/types/global.d.ts',
-      'CHANGELOG.md',
-      ...config.default[0].ignores,
-    ],
-  },
-];
+const config = createNodejsEslintConfig();
+
+export default config;

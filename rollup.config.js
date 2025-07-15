@@ -6,11 +6,10 @@ import copy from 'rollup-plugin-copy';
 
 // Find all TypeScript files in 'src', excluding declaration files.
 const entryPoints = globSync('src/**/*.ts', {
-  ignore: ['src/**/*.d.ts'], // Use glob's ignore option
+  ignore: ['src/**/*.d.ts', 'src/**/__tests__/**'], // Ignore declaration files and all __tests__ folders
 });
 
 export default {
-  // Provide the array of entry points directly to input.
   input: entryPoints,
   output: [
     {
@@ -34,13 +33,13 @@ export default {
   ],
   plugins: [
     typescript({
-      tsconfig: './tsconfig.json',
+      tsconfig: './tsconfig.build.json',
       // Ensure declaration files also respect the directory structure.
       declaration: true,
       declarationDir: 'dist',
       rootDir: 'src',
     }),
-    // terser(),
+    terser(),
     copy({
       targets: [
         { src: 'src/tsconfig-base.json', dest: 'dist' },

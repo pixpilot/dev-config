@@ -9,5 +9,14 @@
     "rootDir": "./src"
   },
   "include": ["src/**/*", "src"],
-  "exclude": ["node_modules", "dist", "tests", "scripts", "**/*.test.*", "**/*.spec.*"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "tests",
+    "scripts",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/__tests__/**",
+    "**/__mocks__/**"
+  ]
 }
