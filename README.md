@@ -33,9 +33,9 @@ Choose the creator function that matches your project type and create an `eslint
 
 ```javascript
 import path from 'node:path';
-import { createNodejsConfig } from '@pixpilot/dev-config';
+import { createNodejsEslintConfig } from '@pixpilot/dev-config';
 
-export default createNodejsConfig([], {
+export default createNodejsEslintConfig([], {
   // Best practice: ensure the path is relative to your eslint.config.js
   ignoreFilePath: path.join(import.meta.dirname, '.gitignore'),
 });
