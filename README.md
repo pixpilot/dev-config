@@ -18,7 +18,7 @@ Getting started is simple. Your project needs to have `eslint`, `prettier`, and 
     If your project uses Jest for testing, install it separately. Our ESLint configs will automatically apply Jest rules if it's detected.
 
     ```bash
-    npm install -D jest
+    npm install -D jest ts-jest
     ```
 
 ## ⚙️ Usage
@@ -92,7 +92,13 @@ Create `tsconfig.json` to extend the base configuration.
 
 ### Jest
 
-If you are using Jest, create a `jest.config.js` file.
+If you are using Jest, you must install both `jest` and `ts-jest`:
+
+```bash
+npm install -D jest ts-jest
+```
+
+Create a `jest.config.js` file:
 
 ```javascript
 import config from '@pixpilot/dev-config/jest';
