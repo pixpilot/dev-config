@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/pixpilot/dev-config/compare/v2.0.0...v2.0.1) (2025-07-15)
+
+
+### Bug Fixes
+
+* correct import for Node.js ESLint configuration in README ([e9e2457](https://github.com/pixpilot/dev-config/commit/e9e245784fdfc67a1b03707c9d1cc6481c155d3b))
+
 # [2.0.0](https://github.com/pixpilot/dev-config/compare/v1.6.2...v2.0.0) (2025-07-15)
 
 
