@@ -1,8 +1,9 @@
 import type { TSESLint } from '@typescript-eslint/utils';
 
-import baseConfig from './eslint';
-import jestConfig from './eslint-jest';
-import prettierConfig from './eslint-prettier';
+import baseConfig from './eslint/base';
+import jestConfig from './eslint/jest';
+import type { EslintConfigOptions } from './types/common';
+import { createEslintConfig } from './utils/create-eslint-config';
 
 /**
  * Returns a complete ESLint config array for Node.js projects, including base, Jest, and Prettier configs.
@@ -10,13 +11,9 @@ import prettierConfig from './eslint-prettier';
  * @param additionalConfigs Optional extra ESLint config arrays to include.
  * @returns ESLint FlatConfig.ConfigArray for Node.js projects.
  */
-export function createNodejsConfig(
+export function createNodejsEslintConfig(
   additionalConfigs: TSESLint.FlatConfig.ConfigArray = [],
+  options?: EslintConfigOptions,
 ): TSESLint.FlatConfig.ConfigArray {
-  return [
-    ...baseConfig,
-    ...jestConfig,
-    ...additionalConfigs, // User configs here
-    ...prettierConfig, // Always last
-  ];
+  return createEslintConfig([baseConfig, jestConfig], additionalConfigs, options);
 }
