@@ -18,7 +18,7 @@ importers:
         specifier: ^15.4.1
         version: 15.4.1
       eslint:
-        specifier: ^9.0.0
+        specifier: '>=9.0.0'
         version: 9.29.0(jiti@2.4.2)
       eslint-config-prettier:
         specifier: ^10.1.5
