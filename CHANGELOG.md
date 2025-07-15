@@ -1,3 +1,4 @@
+
 # [1.7.0-rc.1](https://github.com/pixpilot/dev-config/compare/v1.6.2-rc.1...v1.7.0-rc.1) (2025-07-15)
 
 
@@ -12,6 +13,7 @@
 
 ## [1.6.2-rc.1](https://github.com/pixpilot/dev-config/compare/v1.6.1...v1.6.2-rc.1) (2025-07-14)
 
+## [1.6.2](https://github.com/pixpilot/dev-config/compare/v1.6.1...v1.6.2) (2025-07-13)
 
 ### Bug Fixes
 
