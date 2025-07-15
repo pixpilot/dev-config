@@ -119,10 +119,10 @@ const config: TSESLint.FlatConfig.ConfigArray = tseslint.config(
 
       // General JavaScript rules
       'no-console':
-        process.env.ESLINT_NO_CONSOLE === 'off'
+        (process.env.ESLINT_NO_CONSOLE ?? '') === 'off'
           ? 'off'
           : [
-              process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+              (process.env.NODE_ENV ?? 'development') === 'production' ? 'error' : 'warn',
               { allow: ['warn', 'error'] },
             ],
       'no-debugger': 'error',
