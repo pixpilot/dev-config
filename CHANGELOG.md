@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/pixpilot/dev-config/compare/v2.0.1...v2.0.2) (2025-07-15)
+
+
+### Bug Fixes
+
+* update author name and dependencies in package.json ([b615042](https://github.com/pixpilot/dev-config/commit/b61504250d72b6368040d1e6d87840f0976ae494))
+
 ## [2.0.1](https://github.com/pixpilot/dev-config/compare/v2.0.0...v2.0.1) (2025-07-15)
 
 
