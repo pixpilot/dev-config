@@ -1,3 +1,78 @@
+# [2.0.0](https://github.com/pixpilot/dev-config/compare/v1.6.2...v2.0.0) (2025-07-15)
+
+
+* Next ([#21](https://github.com/pixpilot/dev-config/issues/21)) ([b0724f4](https://github.com/pixpilot/dev-config/commit/b0724f4bc4f0b882005ba4bb8a81a6cc578ca90c))
+
+
+### chore
+
+* **release:** force a new major release ([09323e3](https://github.com/pixpilot/dev-config/commit/09323e3fc2194b849ccc21393d4892be6cc993ec))
+
+
+### BREAKING CHANGES
+
+* **release:** This commit forces a major version bump to v2.0.0.
+* add ESLint configuration functions for React, Node.js, and Next.js projects
+
+* refactor: update test script to use .mjs extension and modify tsconfig module setting
+
+* chore(release): 1.6.2-rc.1 [skip ci]
+
+## [1.6.2-rc.1](https://github.com/pixpilot/dev-config/compare/v1.6.1...v1.6.2-rc.1) (2025-07-14)
+
+### Bug Fixes
+
+* update Prettier configuration and streamline tsconfig exclusion list ([5ff470f](https://github.com/pixpilot/dev-config/commit/5ff470fe3b6f5785028f551e6203c5c1d9f19455))
+
+* add vite
+
+* Restructure ESLint configuration and improve TypeScript support
+
+- Added rollup.config.js for building TypeScript files into CommonJS and ES modules.
+- Removed outdated copy-assets.js script and create-nextjs-config.ts.
+- Introduced create-nextjs-eslint-config.ts, create-nodejs-eslint-config.ts, and create-react-eslint-config.ts for better ESLint configuration management.
+- Created base ESLint configuration in src/eslint/base.ts with TypeScript support and import rules.
+- Added Jest-specific ESLint configuration in src/eslint/jest.ts.
+- Implemented accessibility rules using eslint-plugin-jsx-a11y in src/eslint/jsx-a11y.ts.
+- Added Next.js specific ESLint rules in src/eslint/nextjs.ts.
+- Integrated Prettier compatibility in src/eslint/prettier.ts.
+- Enhanced React ESLint configuration in src/eslint/react.ts with hooks and refresh support.
+- Updated index.ts to export new ESLint configuration functions and types.
+- Introduced common types for ESLint configuration options in src/types/common.ts.
+- Created utility functions for merging ESLint configurations in src/utils/create-eslint-config.ts.
+- Added ignore file handling in src/utils/ignore-file-path.ts.
+- Updated tsconfig.build.json to include src directory for type declarations.
+- Removed vite.config.ts as it is no longer needed.
+
+* fix: update TypeScript configuration path in README and package.json
+
+* chore: update Jest installation instructions and add ts-jest as a peer dependency
+
+* feat: update pnpm-lock.yaml with new dependencies and versions
+
+fix: modify rollup.config.js to use tsconfig.build.json and ignore test folders
+
+test: add unit tests for create-nextjs-eslint-config, create-nodejs-eslint-config, and create-react-eslint-config
+
+test: implement comprehensive tests for create-eslint-config utility
+
+chore: remove outdated verify.mjs script
+
+chore: enhance tsconfig.build.json to exclude additional test directories
+
+chore: adjust tsconfig.json moduleResolution to Node
+
+* chore(release): 1.7.0-rc.1 [skip ci]
+
+# [1.7.0-rc.1](https://github.com/pixpilot/dev-config/compare/v1.6.2-rc.1...v1.7.0-rc.1) (2025-07-15)
+
+### Bug Fixes
+
+* update TypeScript configuration path in README and package.json ([de3e17b](https://github.com/pixpilot/dev-config/commit/de3e17bdec8175e67ab54de19a92147478753f3b))
+
+### Features
+
+* update pnpm-lock.yaml with new dependencies and versions ([7ea5300](https://github.com/pixpilot/dev-config/commit/7ea5300f154057506e36463ab26ba81c62f2715f))
 
 # [1.7.0-rc.1](https://github.com/pixpilot/dev-config/compare/v1.6.2-rc.1...v1.7.0-rc.1) (2025-07-15)
 
