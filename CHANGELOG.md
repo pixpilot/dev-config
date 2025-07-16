@@ -1,3 +1,10 @@
+## [2.0.8](https://github.com/pixpilot/dev-config/compare/v2.0.7...v2.0.8) (2025-07-16)
+
+
+### Bug Fixes
+
+* update preinstall and prepare scripts to use npx only-allow and husky ([d1f2b05](https://github.com/pixpilot/dev-config/commit/d1f2b057a775566dfe354fcf0f8e4f41cd19b552))
+
 ## [2.0.7](https://github.com/pixpilot/dev-config/compare/v2.0.6...v2.0.7) (2025-07-16)
 
 
