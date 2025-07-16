@@ -39,8 +39,8 @@
     "tsc:watch": "tsc --noEmit --watch",
     "fix:all": "pnpm run lint:fix && pnpm run lint:README:fix && pnpm run format:fix",
     "prepublishOnly": "pnpm run clean && pnpm run build",
-    "preinstall": "node scripts/preinstall.js",
-    "prepare": "node scripts/prepare.js",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky",
     "release": "semantic-release"
   },
   "lint-staged": {
