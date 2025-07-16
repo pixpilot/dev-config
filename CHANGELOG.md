@@ -1,3 +1,11 @@
+## [2.0.4](https://github.com/pixpilot/dev-config/compare/v2.0.3...v2.0.4) (2025-07-16)
+
+
+### Bug Fixes
+
+* remove unnecessary devDependency link for dev-config ([77c3fdb](https://github.com/pixpilot/dev-config/commit/77c3fdb4928f5447ad32d4eee5f8c4d9973b4405))
+* replace preinstall and prepare scripts with custom implementations ([ff94f5a](https://github.com/pixpilot/dev-config/commit/ff94f5af39377bbffe1d2b7ebaf084470c1f9ae2))
+
 ## [2.0.3](https://github.com/pixpilot/dev-config/compare/v2.0.2...v2.0.3) (2025-07-15)
 
 
