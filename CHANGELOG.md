@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/pixpilot/dev-config/compare/v2.0.6...v2.0.7) (2025-07-16)
+
+
+### Bug Fixes
+
+* add markdownlint configuration to package exports ([3660039](https://github.com/pixpilot/dev-config/commit/36600395ef5e668cbfe22baaeafa8f3d669ed087))
+
 ## [2.0.6](https://github.com/pixpilot/dev-config/compare/v2.0.5...v2.0.6) (2025-07-16)
 
 
