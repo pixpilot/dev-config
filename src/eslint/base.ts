@@ -1,23 +1,10 @@
-import * as fs from 'node:fs';
-import * as path from 'node:path';
 import process from 'node:process';
 
-import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import type { TSESLint } from '@typescript-eslint/utils';
 // This is the new dependency to add
 import importPlugin from 'eslint-plugin-import';
 import tseslint from 'typescript-eslint';
-
-// Helper function to safely include .gitignore from the project root
-const gitignore = (() => {
-  try {
-    const gitignorePath = path.join(process.cwd(), '.gitignore');
-    return fs.existsSync(gitignorePath) ? includeIgnoreFile(gitignorePath) : {};
-  } catch {
-    return {};
-  }
-})();
 
 /**
  * Generic ESLint configuration for TypeScript projects
@@ -46,7 +33,6 @@ const gitignore = (() => {
  */
 const config: TSESLint.FlatConfig.ConfigArray = tseslint.config(
   // Ignore files from .gitignore at the project's root
-  gitignore,
   {
     ignores: [
       'dist/',
