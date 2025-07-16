@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/pixpilot/dev-config/compare/v2.0.5...v2.0.6) (2025-07-16)
+
+
+### Bug Fixes
+
+* restore preinstall and prepare scripts for package management ([cb10ee0](https://github.com/pixpilot/dev-config/commit/cb10ee00a4f49a578ef322a692ebf0a9e4c78553))
+
 ## [2.0.5](https://github.com/pixpilot/dev-config/compare/v2.0.4...v2.0.5) (2025-07-16)
 
 
