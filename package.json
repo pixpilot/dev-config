@@ -17,8 +17,8 @@
       "require": "./dist/*.cjs",
       "types": "./dist/*.d.ts"
     },
-    "./package.json": "./package.json",
-    "./typescript": "./dist/tsconfig-base.json"
+    "./typescript": "./dist/tsconfig-base.json",
+    "./markdownlint": "./src/markdownlint.json"
   },
   "files": [
     "dist",
