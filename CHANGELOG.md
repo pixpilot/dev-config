@@ -1,3 +1,11 @@
+## [2.0.3](https://github.com/pixpilot/dev-config/compare/v2.0.2...v2.0.3) (2025-07-15)
+
+
+### Bug Fixes
+
+* update eslint dependency specifier to allow minimum version ([221d4ed](https://github.com/pixpilot/dev-config/commit/221d4edcb9195c9b88fa20e443c35af1bb953a73))
+* update peerDependencies to use minimum version constraints ([a929251](https://github.com/pixpilot/dev-config/commit/a9292518ebb6fda936fae9d964abea07652f239e))
+
 ## [2.0.2](https://github.com/pixpilot/dev-config/compare/v2.0.1...v2.0.2) (2025-07-15)
 
 
