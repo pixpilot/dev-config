@@ -48,6 +48,9 @@ importers:
         specifier: ^8.37.0
         version: 8.37.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
     devDependencies:
+      '@pixpilot/dev-config':
+        specifier: link:Z:/github/dev-config
+        version: 'link:'
       '@rollup/plugin-terser':
         specifier: ^0.4.4
         version: 0.4.4(rollup@4.45.1)
