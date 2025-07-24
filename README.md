@@ -116,6 +116,16 @@ export default config;
     }
     ```
 
+### Commitlint
+
+1.  **Install:** `npm install -D @commitlint/cli @commitlint/config-conventional`
+2.  **Create `commitlint.config.mjs` in your project root:**
+
+    ```javascript
+    import config from '@pixpilot/dev-config/commitlint';
+    export default config;
+    ```
+
 ## 🔧 Configuration Options
 
 ### ESLint
