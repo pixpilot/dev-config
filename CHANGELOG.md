@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/pixpilot/dev-config/compare/v2.0.9...v2.1.0) (2025-07-24)
+
+
+### Features
+
+* **commitlint:** add commitlint configuration ([a779e06](https://github.com/pixpilot/dev-config/commit/a779e066367f2ff5831ae8541c3157e8779624c8))
+
 ## [2.0.9](https://github.com/pixpilot/dev-config/compare/v2.0.8...v2.0.9) (2025-07-16)
 
 
