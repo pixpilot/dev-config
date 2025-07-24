@@ -1,3 +1,10 @@
+## [2.0.9](https://github.com/pixpilot/dev-config/compare/v2.0.8...v2.0.9) (2025-07-16)
+
+
+### Bug Fixes
+
+* remove unused imports and gitignore handling from ESLint config ([d3076e0](https://github.com/pixpilot/dev-config/commit/d3076e0282bff97ef8e40c08ba0bbb6c2b5967c9))
+
 ## [2.0.8](https://github.com/pixpilot/dev-config/compare/v2.0.7...v2.0.8) (2025-07-16)
 
 
