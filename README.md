@@ -1,6 +1,6 @@
 # @pixpilot/dev-config
 
-Modern, opinionated configurations for TypeScript/JavaScript projects, simplified.
+Modern, opinionated configurations for TypeScript projects.
 
 > **Note**: These configurations are designed for our organization's projects but are adaptable for your needs. Settings may evolve to enhance our codebase.
 
@@ -88,3 +88,21 @@ export default config;
 
     export default config;
     ```
+
+### Vitest
+
+1. **Install:**
+
+   ```bash
+   npm install -D vitest @vitest/coverage-v8
+   ```
+
+2. **Create `vitest.config.ts` in your project root:**
+
+   ```typescript
+   import config from '@pixpilot/dev-config/vitest';
+
+   export default config;
+   ```
+
+> Coverage is enabled by default. Reports are generated in text, JSON, and HTML formats.
