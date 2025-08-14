@@ -1,5 +1,15 @@
 ## [2.2.2](https://github.com/pixpilot/dev-config/compare/v2.2.1...v2.2.2) (2025-08-14)
 
+## 3.0.0
+
+### Major Changes
+
+- refactor ESLint configuration and remove deprecated files
+
+### Minor Changes
+
+- configure test coverage settings
+
 ## 2.2.3
 
 ### Patch Changes
