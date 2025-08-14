@@ -21,6 +21,13 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "scripts/**/*", "tests/**/*", "vitest.config.ts", "test/**/*"],
+  "include": [
+    "src/**/*",
+    "scripts/**/*",
+    "tests/**/*",
+    "vitest.config.ts",
+    "test/**/*",
+    "__mocks__/**/*"
+  ],
   "exclude": ["node_modules", "dist"]
 }
