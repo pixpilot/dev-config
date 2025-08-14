@@ -31,11 +31,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run CodeQL Composite Analysis
+      - name: Run CodeQL Analysis
         uses: pixpilot/github/actions/codeql-analysis@main
         with:
           config-file: .github/codeql/codeql-configuration.yml
-          language: 'python'
 # jobs:
 #   analyze:
 #     runs-on: ubuntu-latest
