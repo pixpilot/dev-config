@@ -1,83 +1,49 @@
-# This is a reusable workflow. It can be called from another workflow like this:
-#
-# jobs:
-#   code-analysis:
-#     uses: pixpilot/dev-config/.github/workflows/codeql-analysis.yml@main
-#     with:
-#       # Pass a JSON array of languages to scan
-#       language: '["javascript", "python"]'
-#
-name: Reusable CodeQL Analysis
-
-# This 'workflow_call' trigger makes this workflow reusable.
-# The original 'push', 'pull_request', and 'schedule' triggers have been removed.
-on:
-  workflow_call:
-    # Inputs allow data to be passed from the calling workflow.
-    inputs:
-      language:
-        description: 'A JSON string representing the array of languages to analyze.'
-        required: false
-        type: string
-        # Default to 'javascript' if the calling workflow doesn't provide a language list.
-        default: '["javascript"]'
-      config-file:
-        description: 'Path to CodeQL config file (optional)'
-        required: false
-        type: string
-        default: ''
+name: 'CodeQL'
 
 permissions:
+  security-events: write
   actions: read
   contents: read
-  security-events: write
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    #        ┌───────────── minute (0 - 59)
+    #        │  ┌───────────── hour (0 - 23)
+    #        │  │ ┌───────────── day of the month (1 - 31)
+    #        │  │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+    #        │  │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+    #        │  │ │ │ │
+    #        │  │ │ │ │
+    #        │  │ │ │ │
+    #        *  * * * *
+    - cron: '30 1 * * 0'
 
 jobs:
-  analyze:
-    name: Analyze
+  codeql-analysis:
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        # The 'language' matrix is now dynamically populated from the 'language' input.
-        # The fromJson() function is required to parse the string input into a JSON array.
-        language: ${{ fromJson(inputs.language) }}
-        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
-        # Learn more about CodeQL language support at https://git.io/codeql-language-support
-
     steps:
       - name: Checkout repository
-        # This step checks out the code of the repository that *called* this workflow.
         uses: actions/checkout@v4
 
-      # Initializes the CodeQL tools for scanning.
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+      - name: Run CodeQL Composite Analysis
+        uses: pixpilot/github/actions/codeql-analysis@main
         with:
-          languages: ${{ matrix.language }}
-          # Only use config file if provided
-          config-file: ${{ inputs.config-file != '' && inputs.config-file || null }}
-          # If you wish to specify custom queries, you can do so here or in a config file.
-          # By default, queries listed here will override any specified in a config file.
-          # Prefix the list here with "+" to use these queries and those in the config file.
-          # queries: ./path/to/local/query, your-org/your-repo/queries@main
+          config-file: .github/codeql/codeql-configuration.yml
+# jobs:
+#   analyze:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
 
-      # Autobuild attempts to build any compiled languages (C/C++, C#, or Java).
-      # If this step fails, then you should remove it and run the build manually (see below)
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
+#       - name: Initialize CodeQL
+#         uses: pixpilot/github/actions/codeql-issue-maker@main
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # ℹ️ Command-line programs to run using the OS shell.
-      # 📚 https://git.io/JvXDl
-
-      # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
-      #    and modify them (or add more) to build your code if your project
-      #    uses a compiled language
-
-      #- run: |
-      #   make bootstrap
-      #   make release
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
