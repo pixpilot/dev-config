@@ -26,7 +26,7 @@ on:
 
 jobs:
   analyze:
-    uses: pixpilot/dev-config/.github/workflows/codeql-analysis.yml@main
+    uses: pixpilot/github/workflows/codeql-analysis.yml@main
     with:
       config-file: .github/codeql/codeql-configuration.yml
 # jobs:
