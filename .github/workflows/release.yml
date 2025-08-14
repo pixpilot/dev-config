@@ -1,5 +1,3 @@
-# .github/workflows/release.yml
-
 name: Release Package
 
 on:
@@ -12,7 +10,6 @@ on:
 jobs:
   ci:
     name: Run CI Checks
-    # Supported: Calling a reusable workflow in the same repo is valid per https://docs.github.com/en/actions/how-tos/sharing-automations/reusing-workflows#calling-a-reusable-workflow
     uses: ./.github/workflows/ci.yml
 
   release:
@@ -42,4 +39,4 @@ jobs:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
           USER_ID: ${{ steps.generate_token.outputs.user-id }}
           APP_SLUG: ${{ steps.generate_token.outputs.app-slug }}
-          NPM_TOKEN: ${{  secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
