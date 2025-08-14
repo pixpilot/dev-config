@@ -1,0 +1,4 @@
+{
+  "changelog": ["@changesets/changelog-github", {"repo": "pixpilot/dev-config"}],
+  "access": "public"
+}
