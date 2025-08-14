@@ -16,9 +16,29 @@ jobs:
     uses: ./.github/workflows/ci.yml
 
   release:
-    uses: pixpilot/github/actions/semantic-release-protected-branch@main
-    needs: ci
-    secrets:
-      RELEASER_ID: ${{ secrets.RELEASER_ID }}
-      RELEASER_PRIVATE_KEY: ${{ secrets.RELEASER_PRIVATE_KEY }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate bot app token
+        id: generate_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.RELEASER_ID }}
+          private-key: ${{ secrets.RELEASER_PRIVATE_KEY }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ steps.generate_token.outputs.token }}
+
+      - name: Setup project
+        uses: ./.github/actions/setup-project
+        with:
+          registry-url: 'https://registry.npmjs.org'
+
+      - uses: pixpilot/github/actions/semantic-release-protected-branch@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USER_ID: ${{ secrets.RELEASER_ID }}
+          APP_SLUG: ${{ secrets.RELEASER_APP_SLUG }}
+          PRIVATE_KEY: ${{ secrets.RELEASER_PRIVATE_KEY }}
