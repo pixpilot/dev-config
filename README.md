@@ -100,9 +100,9 @@ export default config;
 2. **Create `vitest.config.ts` in your project root:**
 
    ```typescript
-   import config from '@pixpilot/dev-config/vitest';
+   import defineConfig from '@pixpilot/dev-config/vitest';
 
-   export default config;
+   export default defineConfig();
    ```
 
 > Coverage is enabled by default. Reports are generated in text, JSON, and HTML formats.
