@@ -1,7 +1,7 @@
+import terser from '@rollup/plugin-terser';
 // rollup.config.js
 import typescript from '@rollup/plugin-typescript';
 import { globSync } from 'glob';
-import terser from '@rollup/plugin-terser';
 import copy from 'rollup-plugin-copy';
 
 // Find all TypeScript files in 'src', excluding declaration files.
