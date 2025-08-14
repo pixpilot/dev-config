@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/pixpilot/dev-config/compare/v2.2.1...v2.2.2) (2025-08-14)
+
+
+### Bug Fixes
+
+* **workflow:** clean up release workflow and remove unused semantic-release-protected-branch ([ad5d0a3](https://github.com/pixpilot/dev-config/commit/ad5d0a3e44370781388952881e6e69761423ef27))
+
 ## [2.2.1](https://github.com/pixpilot/dev-config/compare/v2.2.0...v2.2.1) (2025-08-14)
 
 
