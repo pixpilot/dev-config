@@ -35,6 +35,7 @@ jobs:
         uses: pixpilot/github/actions/codeql-analysis@main
         with:
           config-file: .github/codeql/codeql-configuration.yml
+          language: 'python'
 # jobs:
 #   analyze:
 #     runs-on: ubuntu-latest
