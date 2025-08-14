@@ -1,7 +1,7 @@
 {
   "name": "@pixpilot/dev-config",
   "type": "module",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Modern, opinionated development configurations.",
   "author": "m.doaie",
   "license": "MIT",
@@ -63,7 +63,9 @@
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
-    "release": "semantic-release"
+    "deps:update": "npx taze -r -w && pnpm install",
+    "deps:update:major": "npx taze major -r -w && pnpm install",
+    "changeset": "changeset"
   },
   "peerDependencies": {
     "prettier": ">=3.6.0",
@@ -77,20 +79,20 @@
     "@pixpilot/eslint-config": "^2.4.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.4",
-    "@types/node": "^24.0.14",
-    "eslint": "^9.31.0",
+    "@types/node": "^24.2.1",
+    "eslint": "^9.33.0",
     "glob": "^11.0.3",
     "husky": "^9.1.7",
     "jest": "^30.0.5",
-    "jiti": "^2.4.2",
-    "lint-staged": "^16.1.2",
+    "jiti": "^2.5.1",
+    "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
-    "rollup": "^4.45.1",
+    "rollup": "^4.46.2",
     "rollup-plugin-copy": "^3.5.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,yml}": [
