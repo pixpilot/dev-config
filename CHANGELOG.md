@@ -1,3 +1,12 @@
+## [2.2.1](https://github.com/pixpilot/dev-config/compare/v2.2.0...v2.2.1) (2025-08-14)
+
+
+### Bug Fixes
+
+* **release:** restructure release job steps for improved clarity ([86533cc](https://github.com/pixpilot/dev-config/commit/86533cc8e69259f6b3ee5208639090b118ee8443))
+* **release:** update token handling in release job ([754229f](https://github.com/pixpilot/dev-config/commit/754229f8e89b71e5a76066f0334b94efc46b0e10))
+* **workflow:** remove language specification from CodeQL analysis ([5e7df38](https://github.com/pixpilot/dev-config/commit/5e7df388b6e3eba96367271389fe2cd3870d7aa3))
+
 # [2.2.0](https://github.com/pixpilot/dev-config/compare/v2.1.1...v2.2.0) (2025-08-14)
 
 
