@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/pixpilot/dev-config/compare/v2.1.0...v2.1.1) (2025-08-14)
+
+
+### Bug Fixes
+
+* **workflow:** update CodeQL analysis workflow reference ([5ca4cfe](https://github.com/pixpilot/dev-config/commit/5ca4cfe5cb91a6a2c3b1804ae0e8607127e1f38d))
+
 # [2.1.0](https://github.com/pixpilot/dev-config/compare/v2.0.9...v2.1.0) (2025-07-24)
 
 
