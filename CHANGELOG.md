@@ -1,5 +1,11 @@
 ## [2.2.2](https://github.com/pixpilot/dev-config/compare/v2.2.1...v2.2.2) (2025-08-14)
 
+## 3.1.0
+
+### Minor Changes
+
+- extend userConfig to support coverageOnCI
+
 ## 3.0.0
 
 ### Major Changes
