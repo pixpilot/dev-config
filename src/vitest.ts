@@ -5,7 +5,11 @@ import { defineConfig } from 'vitest/config';
 
 const deepmerge = fastifyDeepmerge({ all: true });
 
-function makeConfig(userConfig: ViteUserConfig = {}): ViteUserConfig {
+type ViteUserConfigExtended = ViteUserConfig & { coverageOnCI?: boolean };
+
+function makeConfig(userConfig: ViteUserConfigExtended = {}): ViteUserConfig {
+  const { coverageOnCI = false } = userConfig;
+
   const defaultConfig = defineConfig({
     test: {
       watch: false,
@@ -27,7 +31,7 @@ function makeConfig(userConfig: ViteUserConfig = {}): ViteUserConfig {
       ],
       exclude: ['**/node_modules/**', '**/dist/**'],
       coverage: {
-        enabled: ci.isCI,
+        enabled: coverageOnCI && ci.isCI,
         provider: 'v8',
         reportOnFailure: true,
         reporter: ['text-summary', 'json', 'html'],
