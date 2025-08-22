@@ -18,7 +18,7 @@ const config: PrettierConfig = {
   endOfLine: 'lf',
   overrides: [
     {
-      files: ['*.json', 'tsconfig*.json'],
+      files: ['*.json', 'tsconfig*.json','*.jsonc','*.json.hbs'],
       options: {
         printWidth: 100,
         semi: false,
