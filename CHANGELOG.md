@@ -1,5 +1,11 @@
 ## [2.2.2](https://github.com/pixpilot/dev-config/compare/v2.2.1...v2.2.2) (2025-08-14)
 
+## 3.1.2
+
+### Patch Changes
+
+- update file patterns in overrides for JSON files
+
 ## 3.1.1
 
 ### Patch Changes
