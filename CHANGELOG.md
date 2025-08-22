@@ -1,5 +1,12 @@
 ## [2.2.2](https://github.com/pixpilot/dev-config/compare/v2.2.1...v2.2.2) (2025-08-14)
 
+## 3.1.1
+
+### Patch Changes
+
+- format overrides array for consistency
+- add additional file types to overrides
+
 ## 3.1.0
 
 ### Minor Changes
