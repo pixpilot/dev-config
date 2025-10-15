@@ -1,5 +1,16 @@
 # @pixpilot/dev-config
 
+## 3.3.0
+
+### Minor Changes
+
+- add rollup-config
+
+### Patch Changes
+
+- remove private flag from package.json
+- fix eslint warns
+
 ## 3.2.3
 
 ### Patch Changes
