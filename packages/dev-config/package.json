@@ -10,7 +10,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixpilot/dev-config"
+    "url": "https://github.com/pixpilot/dev-config",
+    "directory": "packages/dev-config"
   },
   "keywords": [
     "prettier",
