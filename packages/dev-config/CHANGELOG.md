@@ -1,5 +1,12 @@
 # @pixpilot/dev-config
 
+## 3.2.1
+
+### Patch Changes
+
+- remove private flag from package.json
+- fix eslint warns
+
 ## 3.2.0
 
 ### Minor Changes
