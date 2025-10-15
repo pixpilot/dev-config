@@ -1,5 +1,12 @@
 # @pixpilot/dev-config
 
+## 3.2.2
+
+### Patch Changes
+
+- update README.md and package.json for clarity and structure
+- fix eslint warns
+
 ## 3.2.1
 
 ### Patch Changes
