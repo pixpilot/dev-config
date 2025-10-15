@@ -1,5 +1,17 @@
 # @pixpilot/rollup-config
 
+## 0.2.0
+
+### Minor Changes
+
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- add directory field to package.json
+- restore CHANGELOG.md for release tracking
+- fix eslint warns
+
 ## 0.1.0
 
 ### Minor Changes

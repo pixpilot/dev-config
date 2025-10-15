@@ -1,5 +1,15 @@
 # @pixpilot/dev-config
 
+## 3.6.0
+
+### Minor Changes
+
+- add additional copy targets for configuration
+
+### Patch Changes
+
+- update package.json to set module type and public access
+
 ## 3.5.0
 
 ### Minor Changes
