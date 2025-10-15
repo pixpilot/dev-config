@@ -1,5 +1,16 @@
 # @pixpilot/dev-config
 
+## 3.5.0
+
+### Minor Changes
+
+- add additional copy targets for configuration
+
+### Patch Changes
+
+- add directory field to package.json
+- update README.md and package.json for clarity and structure
+
 ## 3.4.0
 
 ### Minor Changes

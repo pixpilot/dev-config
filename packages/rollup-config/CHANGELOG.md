@@ -1,5 +1,16 @@
 # @pixpilot/rollup-config
 
+## 0.1.0
+
+### Minor Changes
+
+- enhance configuration with copy options
+
+### Patch Changes
+
+- update package.json to set module type and public access
+- fix eslint warns
+
 ## 0.0.2
 
 ### Patch Changes
