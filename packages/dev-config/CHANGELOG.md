@@ -1,5 +1,15 @@
 # @pixpilot/dev-config
 
+## 3.4.0
+
+### Minor Changes
+
+- add rollup-config
+
+### Patch Changes
+
+- update README.md and package.json for clarity and structure
+
 ## 3.3.0
 
 ### Minor Changes
