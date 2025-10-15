@@ -1,7 +1,6 @@
 {
   "name": "@pixpilot/dev-config",
   "version": "3.2.0",
-  "private": true,
   "description": "Modern, opinionated development configurations.",
   "author": "m.doaie",
   "license": "MIT",
