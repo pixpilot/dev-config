@@ -122,15 +122,15 @@ importers:
       '@internal/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
+      '@internal/rollup-config':
+        specifier: workspace:*
+        version: link:../../tooling/rollup
       '@internal/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
       '@internal/vitest-config':
         specifier: workspace:*
         version: link:../../tooling/vitest
-      '@rollup/plugin-typescript':
-        specifier: catalog:dev
-        version: 12.1.4(rollup@4.46.2)(tslib@2.8.1)(typescript@5.9.2)
       '@types/ci-info':
         specifier: ^3.1.0
         version: 3.1.4
@@ -152,9 +152,6 @@ importers:
       rollup:
         specifier: catalog:dev
         version: 4.46.2
-      rollup-plugin-copy:
-        specifier: catalog:dev
-        version: 3.5.0
       typescript:
         specifier: catalog:dev
         version: 5.9.2

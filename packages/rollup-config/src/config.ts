@@ -1,13 +1,13 @@
 import type { RollupOptions } from 'rollup';
 import type { RollupConfigOptions } from './types';
 import fs from 'node:fs';
-
 import path from 'node:path';
 import process from 'node:process';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import { globSync } from 'glob';
+import copyPlugin from 'rollup-plugin-copy';
 
 const outputDir = path.resolve(process.cwd(), 'dist');
 
@@ -21,6 +21,7 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
     bundleDependencies,
     minify = true,
     entryPoints: customEntryPoints,
+    copy,
     ...restOfOptions
   } = options;
 
@@ -81,6 +82,7 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
       ...(minify ? [terser()] : []),
 
       ...(bundleDependencies === true ? [nodeResolve()] : []),
+      ...(copy != null ? [copyPlugin(copy)] : []),
       ...(restOfOptions.plugins != null ? [restOfOptions.plugins].flat() : []),
     ],
   };

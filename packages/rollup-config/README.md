@@ -27,6 +27,10 @@ export default defineConfig({
   multiEntry: false, // Treat all .ts files in src/ as entry points
   bundleDependencies: false, // Include external dependencies in the bundle
   entryPoints: 'src/index.ts', // Custom entry points (default: 'src/index.ts')
+  copy: [
+    { src: 'README.md', dest: 'dist/' },
+    { src: 'assets/**/*', dest: 'dist/assets/' },
+  ], // Copy files to output directory
 });
 ```
 
@@ -36,6 +40,7 @@ export default defineConfig({
 - **`bundleDependencies`** (boolean): When `true`, includes external dependencies in the final bundle using `@rollup/plugin-node-resolve`.
 - **`minify`** (boolean): Enables minification of the output bundle using `@rollup/plugin-terser`. Defaults to `true`.
 - **`entryPoints`** (string | string[]): Custom entry points for the build. Overrides the default `src/index.ts` or multi-entry behavior.
+- **`copy`** (array): File copy operations using `rollup-plugin-copy`. Each item should be an object with `src` and `dest` properties.
 
 The configuration automatically:
 

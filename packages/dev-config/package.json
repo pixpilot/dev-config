@@ -57,9 +57,9 @@
     "@fastify/deepmerge": "^2.0.0",
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
+    "@internal/rollup-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
-    "@rollup/plugin-typescript": "catalog:dev",
     "@types/ci-info": "^3.1.0",
     "@types/jest": "^29.5.12",
     "@types/node": "catalog:dev",
@@ -67,7 +67,6 @@
     "eslint": "catalog:dev",
     "jest": "^29.7.0",
     "rollup": "catalog:dev",
-    "rollup-plugin-copy": "catalog:dev",
     "typescript": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
