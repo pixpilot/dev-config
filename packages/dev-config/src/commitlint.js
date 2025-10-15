@@ -1,3 +1,8 @@
+const ERROR_LEVEL = 2;
+const HEADER_MAX_LENGTH = 100;
+const SUBJECT_MAX_LENGTH = 100;
+const BODY_MAX_LINE_LENGTH = 120;
+
 export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
@@ -5,7 +10,7 @@ export default {
     'subject-case': [0, 'never'],
     // Enforce allowed commit types (error if invalid)
     'type-enum': [
-      2, // Enforce as error
+      ERROR_LEVEL, // Enforce as error
       'always',
       [
         'feat', // New features
@@ -23,10 +28,10 @@ export default {
       ],
     ],
     // Limit subject line length
-    'subject-max-length': [2, 'always', 100],
+    'subject-max-length': [ERROR_LEVEL, 'always', SUBJECT_MAX_LENGTH],
     // Limit header line length
-    'header-max-length': [2, 'always', 100],
+    'header-max-length': [ERROR_LEVEL, 'always', HEADER_MAX_LENGTH],
     // Limit body line length
-    'body-max-line-length': [1, 'always', 120],
+    'body-max-line-length': [1, 'always', BODY_MAX_LINE_LENGTH],
   },
 };
