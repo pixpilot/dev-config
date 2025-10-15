@@ -5,14 +5,21 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - master
+      - next
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - master
+      - next
   workflow_call:
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
+    name: JavaScript Tests
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,14 +27,14 @@ jobs:
       - name: Setup project
         uses: ./.github/actions/setup-project
 
-      - name: Tests
-        run: pnpm test
-
       - name: Lint
         run: pnpm lint
+
+      - name: Prettier check
+        run: pnpm format
 
       - name: TypeScript check
         run: pnpm typecheck
 
-      - name: Prettier check
-        run: pnpm format
+      - name: Run tests
+        run: pnpm test

@@ -1,0 +1,25 @@
+{
+  "extends": "./packages/dev-config/src/tsconfig-base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": ["vitest/globals"],
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "noEmit": false
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/**",
+    "**/.cache/**",
+    "**/.expo/**",
+    "**/.nest/**",
+    "**/build/**",
+    "**/babel.config.js",
+    "**/metro.config.js",
+    "**/zip.js",
+    "coverage",
+    "**/dist/**",
+    "**/*.js"
+  ]
+}

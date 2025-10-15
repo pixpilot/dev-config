@@ -1,0 +1,70 @@
+{
+  "name": "@pixpilot/dev-config",
+  "version": "3.1.1",
+  "private": true,
+  "description": "Modern, opinionated development configurations.",
+  "author": "m.doaie",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixpilot/dev-config"
+  },
+  "keywords": [
+    "prettier",
+    "typescript",
+    "jest",
+    "vite",
+    "tsconfig",
+    "config",
+    "development",
+    "linting",
+    "formatting",
+    "testing",
+    "bundling"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "require": "./dist/*.cjs"
+    },
+    "./typescript": "./dist/tsconfig-base.json",
+    "./markdownlint": "./src/markdownlint.json"
+  },
+  "scripts": {
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "clean": "git clean -xdf .cache .turbo dist",
+    "clean:all": "git clean -xdf .cache .turbo dist node_modules",
+    "build": "pnpm run clean && rollup -c",
+    "test": "vitest --run --passWithNoTests",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@fastify/deepmerge": "^2.0.0",
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
+    "@internal/vitest-config": "workspace:*",
+    "@rollup/plugin-typescript": "catalog:dev",
+    "@types/ci-info": "^3.1.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "catalog:dev",
+    "ci-info": "^4.0.0",
+    "eslint": "catalog:dev",
+    "jest": "^29.7.0",
+    "rollup": "catalog:dev",
+    "rollup-plugin-copy": "catalog:dev",
+    "typescript": "catalog:dev"
+  },
+  "prettier": "@internal/prettier-config"
+}

@@ -1,120 +1,56 @@
 {
-  "name": "@pixpilot/dev-config",
-  "type": "module",
-  "version": "3.1.1",
-  "description": "Modern, opinionated development configurations.",
-  "author": "m.doaie",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pixpilot/dev-config"
-  },
-  "keywords": [
-    "prettier",
-    "typescript",
-    "jest",
-    "vite",
-    "tsconfig",
-    "config",
-    "development",
-    "linting",
-    "formatting",
-    "testing",
-    "bundling"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./*": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js",
-      "require": "./dist/*.cjs"
-    },
-    "./typescript": "./dist/tsconfig-base.json",
-    "./markdownlint": "./src/markdownlint.json"
-  },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "README.md",
-    "dist",
-    "src"
-  ],
+  "name": "dev-config",
+  "private": true,
+  "packageManager": "pnpm@10.17.0",
   "engines": {
-    "node": ">=20",
+    "node": ">=22.14.0",
     "pnpm": ">=9.6.0"
   },
   "scripts": {
-    "build": "pnpm run clean && rollup -c",
-    "clean": "rimraf dist",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "lint:README": "markdownlint README.md",
-    "lint:README:fix": "markdownlint README.md --fix",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "fix:all": "pnpm run lint:fix && pnpm run lint:README:fix && pnpm run format:fix",
-    "typecheck": "tsc --noEmit",
-    "tsc:watch": "tsc --noEmit --watch",
-    "test": "vitest run",
-    "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage",
-    "prepublishOnly": "pnpm run clean && pnpm run build",
-    "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
+    "preinstall": "npx only-allow pnpm",
+    "build": "turbo run build",
+    "tsc:watch": "pnpm exec tsc --noEmit --watch --project tsconfig.watch.json",
+    "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
+    "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
+    "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache && pnpm lint:root",
+    "lint:fix": "pnpm lint --fix && pnpm lint:root:fix",
+    "lint:root": "eslint .github *.config.{js,cjs,mjs,ts} *.json README.md --cache --cache-location .cache/.eslintcache",
+    "lint:root:fix": "pnpm lint:root --fix",
+    "lint:ws": "pnpm dlx sherif@latest",
+    "fix:all": "pnpm format:fix && pnpm lint:fix && pnpm typecheck",
+    "postinstall": "pnpm lint:ws",
+    "test": "turbo run test",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage --config tooling/vitest/index.js",
+    "typecheck": "turbo run typecheck",
+    "clean:workspaces": "turbo run clean:all && git clean -xdf .cache .turbo",
+    "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "deps:update": "npx taze -r -w && pnpm install",
     "deps:update:major": "npx taze major -r -w && pnpm install",
+    "turbo:gen:init": "pnpm turbo gen init",
     "changeset": "changeset"
   },
-  "peerDependencies": {
-    "prettier": ">=3.6.0",
-    "typescript": ">=5.0.0"
-  },
-  "dependencies": {
-    "@fastify/deepmerge": "^3.1.0",
-    "@manypkg/get-packages": "^3.1.0",
-    "add": "^2.0.6",
-    "ci-info": "^4.3.0",
-    "markdownlint-cli": "^0.45.0"
-  },
   "devDependencies": {
-    "@changesets/cli": "^2.29.5",
-    "@pixpilot/eslint-config": "^2.4.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.1.4",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^24.2.1",
-    "@vitest/coverage-v8": "^3.2.4",
-    "@vitest/ui": "^3.2.4",
-    "eslint": "^9.33.0",
-    "glob": "^11.0.3",
+    "@changesets/cli": "^2.29.6",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@internal/prettier-config": "workspace:*",
+    "@pixpilot/workspace-package-generator": "^1.1.5",
+    "@turbo/gen": "^2.5.5",
+    "@types/node": "catalog:dev",
+    "@vitest/coverage-v8": "catalog:dev",
+    "@vitest/ui": "catalog:dev",
+    "eslint": "catalog:dev",
+    "glob": "catalog:dev",
     "husky": "^9.1.7",
-    "jest": "^30.0.5",
-    "jiti": "^2.5.1",
     "lint-staged": "^16.1.5",
-    "prettier": "^3.6.2",
+    "prettier": "catalog:dev",
     "rimraf": "^6.0.1",
-    "rollup": "^4.46.2",
-    "rollup-plugin-copy": "^3.5.0",
-    "ts-node": "^10.9.2",
-    "tslib": "^2.8.1",
-    "typescript": "^5.9.2",
-    "vitest": "^3.2.4"
+    "tsx": "catalog:dev",
+    "turbo": "^2.5.5",
+    "typescript": "catalog:dev",
+    "vitest": "catalog:dev"
   },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx,yml}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "README.md": [
-      "pnpm run lint:README:fix"
-    ]
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+  "prettier": "@internal/prettier-config"
 }

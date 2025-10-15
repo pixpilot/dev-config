@@ -1,0 +1,7 @@
+{
+  "extends": "./base.json",
+  "compilerOptions": {
+    "types": ["vitest/global"]
+  },
+  "include": ["eslint.config.mjs"]
+}

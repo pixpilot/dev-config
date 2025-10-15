@@ -1,6 +1,5 @@
-import type { PrettierConfig } from './types/types.d.ts';
-
-const config: PrettierConfig = {
+/** @type { import("prettier").Config } */
+const config = {
   // Line length and formatting
   printWidth: 90,
   tabWidth: 2,

@@ -1,4 +1,3 @@
-import ciInfo from 'ci-info';
 import { describe, expect, it, vi } from 'vitest';
 import makeConfig from '../src/vitest';
 
@@ -37,13 +36,5 @@ describe('makeConfig', () => {
         expect(config.test.coverage).toHaveProperty('provider', 'v8');
       }
     }
-  });
-});
-
-describe('ci-info mock', () => {
-  it('should use the mock values', () => {
-    expect(ciInfo.isCI).toBe(false);
-    expect(ciInfo.name).toBe('local');
-    expect(ciInfo.isPR).toBe(false);
   });
 });

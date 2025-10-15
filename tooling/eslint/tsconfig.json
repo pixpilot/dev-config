@@ -1,0 +1,9 @@
+{
+  "extends": "../../packages/dev-config/src/tsconfig-base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true
+  },
+  "include": ["base.js"],
+  "exclude": ["node_modules"]
+}
