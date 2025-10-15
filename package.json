@@ -48,6 +48,7 @@
     "eslint": "catalog:dev",
     "glob": "catalog:dev",
     "husky": "^9.1.7",
+    "jiti": "catalog:dev",
     "lint-staged": "^16.1.5",
     "prettier": "catalog:dev",
     "rimraf": "^6.0.1",

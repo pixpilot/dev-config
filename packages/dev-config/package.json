@@ -66,6 +66,7 @@
     "ci-info": "^4.0.0",
     "eslint": "catalog:dev",
     "jest": "^29.7.0",
+    "prettier": "catalog:dev",
     "rollup": "catalog:dev",
     "typescript": "catalog:dev"
   },

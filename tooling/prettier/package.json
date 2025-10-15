@@ -2,5 +2,8 @@
   "name": "@internal/prettier-config",
   "version": "0.0.1",
   "private": true,
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "jiti": "catalog:dev"
+  }
 }

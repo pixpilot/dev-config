@@ -1,5 +1,6 @@
-/** @type { import("prettier").Config } */
-const config = {
+import type { Config } from 'prettier';
+
+const config: Config = {
   // Line length and formatting
   printWidth: 90,
   tabWidth: 2,
@@ -28,4 +29,5 @@ const config = {
     },
   ],
 };
+
 export default config;

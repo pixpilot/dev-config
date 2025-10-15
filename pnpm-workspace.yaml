@@ -18,3 +18,4 @@ catalogs:
     "@rollup/plugin-terser": ^0.4.4
     "rollup-plugin-copy": ^3.5.0
     "tsx": ^4.20.6
+    "jiti": ^2.6.1

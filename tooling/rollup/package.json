@@ -16,7 +16,7 @@
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "jiti": "^2.6.1"
+    "jiti": "catalog:dev"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
