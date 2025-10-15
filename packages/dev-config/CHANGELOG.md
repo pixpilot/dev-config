@@ -1,5 +1,13 @@
 # @pixpilot/dev-config
 
+## 3.2.3
+
+### Patch Changes
+
+- add directory field to package.json
+- remove private flag from package.json
+- fix eslint warns
+
 ## 3.2.2
 
 ### Patch Changes
