@@ -1,5 +1,18 @@
 # @pixpilot/dev-config
 
+## 3.10.0
+
+### Minor Changes
+
+- add tsconfig option to RollupConfigOptions
+- enhanced bundleDependencies to handle workspace packages
+- add rollup-config
+
+### Patch Changes
+
+- remove private flag from package.json
+- fix eslint warns
+
 ## 3.9.0
 
 ### Minor Changes
