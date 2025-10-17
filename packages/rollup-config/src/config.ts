@@ -22,6 +22,7 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
     minify = true,
     entryPoints: customEntryPoints,
     copy,
+    tsconfig = './tsconfig.json',
     ...restOfOptions
   } = options;
 
@@ -71,7 +72,7 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
     ],
     plugins: [
       typescript({
-        tsconfig: './tsconfig.build.json',
+        tsconfig,
         /*
          * Enabling incremental compilation may cause errors and sometimes prevent .d.ts file generation.
          * It can also cause the creation of a .rollup.cache folder, which sometimes results in .d.ts files not being copied.

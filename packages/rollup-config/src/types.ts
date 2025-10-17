@@ -18,4 +18,7 @@ export interface RollupConfigOptions extends RollupOptions {
 
   /** Copy options for rollup-plugin-copy. */
   copy?: CopyOptions;
+
+  /** Path to the TypeScript configuration file. Defaults to './tsconfig.json'. */
+  tsconfig?: string;
 }
