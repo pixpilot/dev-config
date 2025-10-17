@@ -1,5 +1,18 @@
 # @pixpilot/rollup-config
 
+## 0.7.0
+
+### Minor Changes
+
+- enhance configuration with async support and workspace aliasing
+- update dependency handling and improve alias creation
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- update package.json to set module type and public access
+- fix eslint warns
+
 ## 0.6.0
 
 ### Minor Changes

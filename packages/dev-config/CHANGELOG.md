@@ -1,5 +1,18 @@
 # @pixpilot/dev-config
 
+## 3.11.0
+
+### Minor Changes
+
+- add tsconfig resolution logic and update interface
+- update dependency handling and improve alias creation
+- add additional copy targets for configuration
+
+### Patch Changes
+
+- update package.json to set module type and public access
+- update README.md and package.json for clarity and structure
+
 ## 3.10.0
 
 ### Minor Changes
