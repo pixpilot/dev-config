@@ -2,6 +2,7 @@ import type { PackageJson } from './package-types';
 import path from 'node:path';
 import process from 'node:process';
 import { getPackages } from '@manypkg/get-packages';
+import { RollupConfigError } from './errors';
 import { resolvePackageEntryPoint } from './resolve-entry-point';
 
 /**
@@ -24,7 +25,7 @@ export async function createWorkspaceAliases(
         );
 
         if (!resolved.success) {
-          throw new Error(
+          throw new RollupConfigError(
             resolved.error ?? 'Unknown error resolving package entry point',
           );
         }
