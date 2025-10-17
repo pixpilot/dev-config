@@ -1,5 +1,19 @@
 # @pixpilot/rollup-config
 
+## 0.8.0
+
+### Minor Changes
+
+- add tsconfig option to RollupConfigOptions
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- update project setup to remove build flag
+- add directory field to package.json
+- update README.md and package.json for clarity and structure
+- fix eslint warns
+
 ## 0.7.0
 
 ### Minor Changes
