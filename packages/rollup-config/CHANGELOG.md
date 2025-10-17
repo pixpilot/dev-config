@@ -1,5 +1,18 @@
 # @pixpilot/rollup-config
 
+## 0.9.0
+
+### Minor Changes
+
+- add tsconfig option to RollupConfigOptions
+- add additional copy targets for configuration
+
+### Patch Changes
+
+- update project setup to remove build flag
+- remove private flag from package.json
+- fix eslint warns
+
 ## 0.8.0
 
 ### Minor Changes

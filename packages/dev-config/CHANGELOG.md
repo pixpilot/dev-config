@@ -1,5 +1,18 @@
 # @pixpilot/dev-config
 
+## 3.13.0
+
+### Minor Changes
+
+- add tsconfig resolution logic and update interface
+- enhanced bundleDependencies to handle workspace packages
+- add rollup-config
+
+### Patch Changes
+
+- update project setup to remove build flag
+- update README.md and package.json for clarity and structure
+
 ## 3.12.0
 
 ### Minor Changes
