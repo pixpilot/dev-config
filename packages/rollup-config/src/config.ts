@@ -8,6 +8,7 @@ import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import { globSync } from 'glob';
 import copyPlugin from 'rollup-plugin-copy';
+import { resolveTsconfig } from './utils';
 
 const outputDir = path.resolve(process.cwd(), 'dist');
 
@@ -22,9 +23,12 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
     minify = true,
     entryPoints: customEntryPoints,
     copy,
-    tsconfig = './tsconfig.json',
+    tsconfig: customTsconfig,
     ...restOfOptions
   } = options;
+
+  // Determine tsconfig path
+  const tsconfig = resolveTsconfig(customTsconfig);
 
   // Read package.json to get peerDependencies
   const packageJsonPath = path.resolve(process.cwd(), 'package.json');
