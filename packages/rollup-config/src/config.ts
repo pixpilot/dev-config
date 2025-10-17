@@ -1,21 +1,22 @@
 import type { RollupOptions } from 'rollup';
 import type { RollupConfigOptions } from './types';
+import type { PackageJson } from './utils';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import alias from '@rollup/plugin-alias';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import { globSync } from 'glob';
 import copyPlugin from 'rollup-plugin-copy';
+import { createWorkspaceAliases } from './utils';
 
 const outputDir = path.resolve(process.cwd(), 'dist');
 
-interface PackageJson {
-  peerDependencies?: Record<string, string>;
-}
-
-export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
+export async function defineConfig(
+  options: RollupConfigOptions = {},
+): Promise<RollupOptions> {
   const {
     multiEntry,
     bundleDependencies,
@@ -25,12 +26,14 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
     ...restOfOptions
   } = options;
 
-  // Read package.json to get peerDependencies
+  // Read package.json to get dependencies and peerDependencies
   const packageJsonPath = path.resolve(process.cwd(), 'package.json');
   const packageJson = JSON.parse(
     fs.readFileSync(packageJsonPath, 'utf-8'),
   ) as PackageJson;
   const peerDeps = Object.keys(packageJson.peerDependencies ?? {});
+  const deps = Object.keys(packageJson.dependencies ?? {});
+  const allDeps = [...peerDeps, ...deps];
 
   // For all TypeScript files in 'src', excluding declaration files.
   let entryPoints;
@@ -44,9 +47,14 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
     entryPoints = 'src/index.ts';
   }
 
+  // Get workspace aliases for bundling
+  const workspaceAliases = bundleDependencies
+    ? await createWorkspaceAliases(packageJson.name)
+    : [];
+
   const config: RollupOptions = {
     input: entryPoints,
-    external: peerDeps,
+    external: bundleDependencies ? peerDeps : allDeps, // Only externals when not bundling
     ...restOfOptions,
     output: [
       {
@@ -70,6 +78,10 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
       ...(restOfOptions.output ? [restOfOptions.output].flat() : []),
     ],
     plugins: [
+      // Add workspace aliases first when bundling
+      // eslint-disable-next-line ts/no-unsafe-assignment, ts/no-unsafe-call
+      ...(workspaceAliases.length > 0 ? [alias({ entries: workspaceAliases })] : []),
+
       typescript({
         tsconfig: './tsconfig.build.json',
         /*
