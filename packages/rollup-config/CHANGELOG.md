@@ -1,5 +1,18 @@
 # @pixpilot/rollup-config
 
+## 0.6.0
+
+### Minor Changes
+
+- add tsconfig resolution logic and update interface
+- update dependency handling and improve alias creation
+- enhance configuration with copy options
+
+### Patch Changes
+
+- remove private flag from package.json
+- fix eslint warns
+
 ## 0.5.0
 
 ### Minor Changes
