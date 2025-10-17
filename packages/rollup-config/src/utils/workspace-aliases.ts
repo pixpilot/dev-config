@@ -6,6 +6,7 @@ import { resolvePackageEntryPoint } from './resolve-entry-point';
 
 /**
  * Creates workspace aliases for bundling dependencies
+ * Skips the current package and any private packages (with "private": true in package.json)
  */
 export async function createWorkspaceAliases(
   currentPackageName: string | undefined,
@@ -15,8 +16,8 @@ export async function createWorkspaceAliases(
     const aliases: Array<{ find: string; replacement: string }> = [];
 
     for (const pkg of packages) {
-      // Skip self
-      if (pkg.packageJson.name !== currentPackageName) {
+      // Skip self and private packages
+      if (pkg.packageJson.name !== currentPackageName && !pkg.packageJson.private) {
         const resolved = resolvePackageEntryPoint(
           pkg.packageJson as PackageJson,
           pkg.dir,

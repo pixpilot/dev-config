@@ -246,4 +246,54 @@ describe('createWorkspaceAliases', () => {
     expect(aliases).toHaveLength(1);
     expect(aliases[0]?.replacement).toBe(path.join(pkgDir, 'dist/esm/index.mjs'));
   });
+
+  it('should skip private packages', async () => {
+    const { getPackages } = await import('@manypkg/get-packages');
+
+    const publicPkgDir = path.join(tempDir, 'packages', 'public');
+    const privatePkgDir = path.join(tempDir, 'packages', 'private');
+
+    fs.mkdirSync(path.join(publicPkgDir, 'dist'), { recursive: true });
+    fs.mkdirSync(path.join(privatePkgDir, 'dist'), { recursive: true });
+    fs.writeFileSync(path.join(publicPkgDir, 'dist', 'index.js'), 'export {}');
+    fs.writeFileSync(path.join(privatePkgDir, 'dist', 'index.js'), 'export {}');
+
+    vi.mocked(getPackages).mockResolvedValue({
+      packages: [
+        {
+          packageJson: {
+            name: '@test/public',
+            version: '1.0.0',
+            exports: './dist/index.js',
+          } as any,
+          dir: publicPkgDir,
+          relativeDir: 'packages/public',
+        },
+        {
+          packageJson: {
+            name: '@internal/private',
+            version: '1.0.0',
+            private: true,
+            exports: './dist/index.js',
+          } as any,
+          dir: privatePkgDir,
+          relativeDir: 'packages/private',
+        },
+      ] as any,
+      rootPackage: null as any,
+      rootDir: tempDir,
+      tool: 'pnpm' as any,
+    });
+
+    const originalCwd = process.cwd;
+    process.cwd = vi.fn(() => tempDir);
+
+    const aliases = await createWorkspaceAliases('@test/current');
+
+    process.cwd = originalCwd;
+
+    expect(aliases).toHaveLength(1);
+    expect(aliases[0]?.find).toBe('@test/public');
+    expect(aliases.find((a) => a.find === '@internal/private')).toBeUndefined();
+  });
 });
