@@ -1,5 +1,17 @@
 # @pixpilot/rollup-config
 
+## 0.3.0
+
+### Minor Changes
+
+- enhanced bundleDependencies to handle workspace packages
+- enhance configuration with copy options
+
+### Patch Changes
+
+- remove private flag from package.json
+- fix eslint warns
+
 ## 0.2.0
 
 ### Minor Changes

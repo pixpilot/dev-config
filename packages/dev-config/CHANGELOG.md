@@ -1,5 +1,16 @@
 # @pixpilot/dev-config
 
+## 3.7.0
+
+### Minor Changes
+
+- add commit-msg hook for linting
+- add rollup-config
+
+### Patch Changes
+
+- update README.md and package.json for clarity and structure
+
 ## 3.6.0
 
 ### Minor Changes
