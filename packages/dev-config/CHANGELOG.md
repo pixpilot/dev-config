@@ -1,5 +1,18 @@
 # @pixpilot/dev-config
 
+## 3.12.0
+
+### Minor Changes
+
+- enhance configuration with async support and workspace aliasing
+- add tsconfig option to RollupConfigOptions
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- add directory field to package.json
+- update README.md and package.json for clarity and structure
+
 ## 3.11.0
 
 ### Minor Changes
