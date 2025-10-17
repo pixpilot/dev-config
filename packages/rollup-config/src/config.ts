@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import alias from '@rollup/plugin-alias';
+import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
@@ -48,8 +49,7 @@ export async function defineConfig(
   // Create alias plugin if there are workspace aliases
   const aliasPlugin: Plugin | null =
     workspaceAliases.length > 0
-      ? // eslint-disable-next-line ts/no-unsafe-call
-        (alias({ entries: workspaceAliases }) as unknown as Plugin)
+      ? (alias({ entries: workspaceAliases }) as unknown as Plugin)
       : null;
 
   // For all TypeScript files in 'src', excluding declaration files.
@@ -104,7 +104,13 @@ export async function defineConfig(
 
       ...(minify ? [terser()] : []),
 
-      ...(bundleDependencies === true ? [nodeResolve()] : []),
+      /*
+       * When bundling dependencies, we need both nodeResolve and commonjs plugins.
+       * nodeResolve locates dependencies in node_modules.
+       * commonjs converts CommonJS modules to ES6 so Rollup can bundle them.
+       * The order matters: nodeResolve should come before commonjs.
+       */
+      ...(bundleDependencies === true ? [nodeResolve(), commonjs()] : []),
       ...(copy != null ? [copyPlugin(copy)] : []),
       ...(restOfOptions.plugins != null ? [restOfOptions.plugins].flat() : []),
     ],
