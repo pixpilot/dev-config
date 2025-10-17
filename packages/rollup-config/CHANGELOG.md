@@ -1,5 +1,18 @@
 # @pixpilot/rollup-config
 
+## 0.10.0
+
+### Minor Changes
+
+- add RollupConfigError class for better error handling
+- add tsconfig option to RollupConfigOptions
+- add additional copy targets for configuration
+
+### Patch Changes
+
+- update package.json to set module type and public access
+- fix eslint warns
+
 ## 0.9.0
 
 ### Minor Changes
