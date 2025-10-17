@@ -1,22 +1,26 @@
-import type { RollupOptions } from 'rollup';
+import type { Plugin, RollupOptions } from 'rollup';
 import type { RollupConfigOptions } from './types';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import alias from '@rollup/plugin-alias';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import { globSync } from 'glob';
 import copyPlugin from 'rollup-plugin-copy';
-import { resolveTsconfig } from './utils';
+import { createWorkspaceAliases, resolveTsconfig } from './utils';
 
 const outputDir = path.resolve(process.cwd(), 'dist');
 
 interface PackageJson {
+  name?: string;
   peerDependencies?: Record<string, string>;
 }
 
-export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
+export async function defineConfig(
+  options: RollupConfigOptions = {},
+): Promise<RollupOptions> {
   const {
     multiEntry,
     bundleDependencies,
@@ -30,12 +34,23 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
   // Determine tsconfig path
   const tsconfig = resolveTsconfig(customTsconfig);
 
-  // Read package.json to get peerDependencies
+  // Read package.json to get peerDependencies and package name
   const packageJsonPath = path.resolve(process.cwd(), 'package.json');
   const packageJson = JSON.parse(
     fs.readFileSync(packageJsonPath, 'utf-8'),
   ) as PackageJson;
   const peerDeps = Object.keys(packageJson.peerDependencies ?? {});
+
+  // Create workspace aliases if bundleDependencies is enabled
+  const workspaceAliases =
+    bundleDependencies === true ? await createWorkspaceAliases(packageJson.name) : [];
+
+  // Create alias plugin if there are workspace aliases
+  const aliasPlugin: Plugin | null =
+    workspaceAliases.length > 0
+      ? // eslint-disable-next-line ts/no-unsafe-call
+        (alias({ entries: workspaceAliases }) as unknown as Plugin)
+      : null;
 
   // For all TypeScript files in 'src', excluding declaration files.
   let entryPoints;
@@ -75,6 +90,9 @@ export function defineConfig(options: RollupConfigOptions = {}): RollupOptions {
       ...(restOfOptions.output ? [restOfOptions.output].flat() : []),
     ],
     plugins: [
+      // Add alias plugin first to resolve workspace packages from their built versions
+      ...(aliasPlugin !== null ? [aliasPlugin] : []),
+
       typescript({
         tsconfig,
         /*
