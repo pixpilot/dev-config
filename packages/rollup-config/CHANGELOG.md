@@ -1,5 +1,18 @@
 # @pixpilot/rollup-config
 
+## 0.5.0
+
+### Minor Changes
+
+- add tsconfig resolution logic and update interface
+- enhanced bundleDependencies to handle workspace packages
+- add rollup-config
+
+### Patch Changes
+
+- update README.md and package.json for clarity and structure
+- fix eslint warns
+
 ## 0.4.0
 
 ### Minor Changes

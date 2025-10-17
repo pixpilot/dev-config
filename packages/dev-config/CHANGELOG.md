@@ -1,5 +1,19 @@
 # @pixpilot/dev-config
 
+## 3.9.0
+
+### Minor Changes
+
+- enhance configuration with async support and workspace aliasing
+- add tsconfig option to RollupConfigOptions
+- add commit-msg hook for linting
+- add rollup-config
+
+### Patch Changes
+
+- remove private flag from package.json
+- fix eslint warns
+
 ## 3.8.0
 
 ### Minor Changes
