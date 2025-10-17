@@ -1,5 +1,17 @@
 # @pixpilot/dev-config
 
+## 3.8.0
+
+### Minor Changes
+
+- add tsconfig option to RollupConfigOptions
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- add directory field to package.json
+- restore CHANGELOG.md for release tracking
+
 ## 3.7.0
 
 ### Minor Changes
