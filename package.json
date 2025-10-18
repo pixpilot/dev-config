@@ -49,7 +49,7 @@
     "glob": "catalog:prod",
     "husky": "^9.1.7",
     "jiti": "catalog:dev",
-    "lint-staged": "^16.1.5",
+    "lint-staged": "^16.2.4",
     "prettier": "catalog:dev",
     "rimraf": "^6.0.1",
     "tsx": "catalog:dev",

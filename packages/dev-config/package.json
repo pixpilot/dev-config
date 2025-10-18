@@ -64,7 +64,7 @@
     "@types/ci-info": "^3.1.0",
     "@types/jest": "^29.5.12",
     "@types/node": "catalog:dev",
-    "ci-info": "^4.0.0",
+    "ci-info": "^4.3.1",
     "eslint": "catalog:dev",
     "jest": "^29.7.0",
     "prettier": "catalog:dev",
