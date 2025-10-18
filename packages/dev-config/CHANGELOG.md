@@ -1,5 +1,19 @@
 # @pixpilot/dev-config
 
+## 3.15.0
+
+### Minor Changes
+
+- add RollupConfigError class for better error handling
+- add tsconfig resolution logic and update interface
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- add directory field to package.json
+- update README.md and package.json for clarity and structure
+- 74552cf: release
+
 ## 3.14.0
 
 ### Minor Changes

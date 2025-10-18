@@ -1,5 +1,19 @@
 # @pixpilot/rollup-config
 
+## 0.11.0
+
+### Minor Changes
+
+- add build:watch script and commonjs plugin
+- add tsconfig resolution logic and update interface
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- update package.json to set module type and public access
+- fix eslint warns
+- 74552cf: release
+
 ## 0.10.0
 
 ### Minor Changes
