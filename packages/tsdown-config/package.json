@@ -1,44 +1,32 @@
 {
-  "name": "@pixpilot/dev-config",
+  "name": "@pixpilot/tsdown-config",
   "type": "module",
-  "version": "3.14.0",
-  "description": "Modern, opinionated development configurations.",
-  "author": "m.doaie",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.17.0",
+  "author": "PixPilot <m.doaie@hotmail.com>",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixpilot/dev-config",
-    "directory": "packages/dev-config"
+    "url": "https://github.com/pixpilot/dev-config.git",
+    "directory": "packages/tsdown-config"
   },
-  "keywords": [
-    "prettier",
-    "typescript",
-    "jest",
-    "vite",
-    "tsconfig",
-    "config",
-    "development",
-    "linting",
-    "formatting",
-    "testing",
-    "bundling"
+  "keywords": [],
+  "exports": "./src/index.ts",
+  "files": [
+    "dist"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs"
+      }
     },
-    "./*": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js",
-      "require": "./dist/*.cjs"
-    },
-    "./typescript": "./dist/tsconfig-base.json",
-    "./markdownlint": "./dist/markdownlint.json"
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts"
   },
   "scripts": {
     "prepublishOnly": "pnpm run clean && pnpm run build",
@@ -53,21 +41,26 @@
     "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
+  "peerDependencies": {
+    "tsdown": ">=0.15.0"
+  },
+  "dependencies": {
+    "@internal/utils": "workspace:*",
+    "@manypkg/get-packages": "catalog:prod",
+    "@pixpilot/rollup-plugin-size-limit": "catalog:dev",
+    "bytes": "catalog:prod",
+    "glob": "catalog:prod"
+  },
   "devDependencies": {
-    "@fastify/deepmerge": "^2.0.0",
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
-    "@internal/rollup-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/tsdown-config": "workspace:*",
     "@internal/vitest-config": "workspace:*",
-    "@types/ci-info": "^3.1.0",
-    "@types/jest": "^29.5.12",
+    "@pixpilot/rollup-plugin-size-limit": "catalog:dev",
+    "@types/bytes": "^3.1.5",
     "@types/node": "catalog:dev",
-    "ci-info": "^4.0.0",
     "eslint": "catalog:dev",
-    "jest": "^29.7.0",
-    "prettier": "catalog:dev",
     "rollup": "catalog:dev",
     "tsdown": "catalog:dev",
     "typescript": "catalog:dev"

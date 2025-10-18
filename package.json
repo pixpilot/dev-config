@@ -46,7 +46,7 @@
     "@vitest/coverage-v8": "catalog:dev",
     "@vitest/ui": "catalog:dev",
     "eslint": "catalog:dev",
-    "glob": "catalog:dev",
+    "glob": "catalog:prod",
     "husky": "^9.1.7",
     "jiti": "catalog:dev",
     "lint-staged": "^16.1.5",

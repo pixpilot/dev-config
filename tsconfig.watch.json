@@ -2,6 +2,9 @@
   "extends": "./packages/dev-config/src/tsconfig-base.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "@internal/*": ["packages/*/src"]
+    },
     "types": ["vitest/globals"],
     "allowJs": true,
     "checkJs": false,

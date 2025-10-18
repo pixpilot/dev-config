@@ -1,5 +1,5 @@
 {
-  "name": "@internal/rollup-config",
+  "name": "@internal/tsdown-config",
   "type": "module",
   "version": "0.1.0",
   "private": true,

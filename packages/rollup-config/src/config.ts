@@ -1,22 +1,45 @@
 import type { Plugin, RollupOptions } from 'rollup';
 import type { RollupConfigOptions } from './types';
-import fs from 'node:fs';
+import { execSync } from 'node:child_process';
+
 import path from 'node:path';
 import process from 'node:process';
-import alias from '@rollup/plugin-alias';
+
+import { getExternalPackages } from '@internal/utils';
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import { globSync } from 'glob';
 import copyPlugin from 'rollup-plugin-copy';
-import { createWorkspaceAliases, resolveTsconfig } from './utils';
+
+import { resolveTsconfig } from './utils';
+
+import { resolveEntryPoints } from './utils/resolve-entry-points';
 
 const outputDir = path.resolve(process.cwd(), 'dist');
 
-interface PackageJson {
-  name?: string;
-  peerDependencies?: Record<string, string>;
+/**
+ * Plugin to generate TypeScript declarations after bundling
+ * This runs tsc separately to generate .d.ts files only for the current package
+ */
+function generateDeclarations(tsconfig: string): Plugin {
+  return {
+    name: 'generate-declarations',
+    writeBundle() {
+      try {
+        // Run tsc to generate declarations
+        execSync(
+          `npx tsc --project ${tsconfig} --emitDeclarationOnly --declarationDir dist`,
+          {
+            stdio: 'inherit',
+            cwd: process.cwd(),
+          },
+        );
+      } catch (error) {
+        console.warn('Failed to generate declarations:', error);
+      }
+    },
+  };
 }
 
 export async function defineConfig(
@@ -35,33 +58,18 @@ export async function defineConfig(
   // Determine tsconfig path
   const tsconfig = resolveTsconfig(customTsconfig);
 
-  // Read package.json to get peerDependencies and package name
-  const packageJsonPath = path.resolve(process.cwd(), 'package.json');
-  const packageJson = JSON.parse(
-    fs.readFileSync(packageJsonPath, 'utf-8'),
-  ) as PackageJson;
-  const peerDeps = Object.keys(packageJson.peerDependencies ?? {});
+  const peerDeps = getExternalPackages(process.cwd());
 
   // Create workspace aliases if bundleDependencies is enabled
-  const workspaceAliases =
-    bundleDependencies === true ? await createWorkspaceAliases(packageJson.name) : [];
-
-  // Create alias plugin if there are workspace aliases
-  const aliasPlugin: Plugin | null =
-    workspaceAliases.length > 0
-      ? (alias({ entries: workspaceAliases }) as unknown as Plugin)
-      : null;
 
   // For all TypeScript files in 'src', excluding declaration files.
-  let entryPoints;
-  if (customEntryPoints != null) {
-    entryPoints = customEntryPoints;
-  } else if (options.multiEntry) {
-    entryPoints = globSync('src/**/*.ts', {
-      ignore: ['src/**/*.d.ts', 'src/**/__tests__/**'], // Ignore declaration files and all __tests__ folders
-    });
+  let entryPoints: string | string[];
+  if (options.multiEntry) {
+    const optionsForResolve =
+      customEntryPoints !== undefined ? { entry: customEntryPoints } : undefined;
+    entryPoints = resolveEntryPoints(optionsForResolve);
   } else {
-    entryPoints = 'src/index.ts';
+    entryPoints = customEntryPoints ?? 'src/index.ts';
   }
 
   const config: RollupOptions = {
@@ -91,8 +99,9 @@ export async function defineConfig(
     ],
     plugins: [
       // Add alias plugin first to resolve workspace packages from their built versions
-      ...(aliasPlugin !== null ? [aliasPlugin] : []),
+      // ...(aliasPlugin !== null ? [aliasPlugin] : []),
 
+      // TypeScript plugin must come first to transpile TS files before other plugins process them
       typescript({
         tsconfig,
         /*
@@ -100,6 +109,16 @@ export async function defineConfig(
          * It can also cause the creation of a .rollup.cache folder, which sometimes results in .d.ts files not being copied.
          */
         incremental: false,
+        // When bundling dependencies, we need to handle declaration generation carefully
+        ...(bundleDependencies === true
+          ? {
+              include: ['**/*.ts'],
+              exclude: ['node_modules/**', '**/*.d.ts'],
+              compilerOptions: {
+                declaration: false, // Disable inline declaration generation
+              },
+            }
+          : {}),
       }),
 
       ...(minify ? [terser()] : []),
@@ -110,9 +129,18 @@ export async function defineConfig(
        * commonjs converts CommonJS modules to ES6 so Rollup can bundle them.
        * The order matters: nodeResolve should come before commonjs.
        */
-      ...(bundleDependencies === true ? [nodeResolve(), commonjs()] : []),
+      ...(bundleDependencies === true
+        ? [
+            nodeResolve({
+              extensions: ['.ts', '.js', '.mjs', '.json', '.node'],
+            }),
+            commonjs(),
+          ]
+        : []),
       ...(copy != null ? [copyPlugin(copy)] : []),
       ...(restOfOptions.plugins != null ? [restOfOptions.plugins].flat() : []),
+      // Generate declarations after bundling
+      ...(bundleDependencies === true ? [generateDeclarations(tsconfig)] : []),
     ],
   };
 

@@ -29,7 +29,7 @@
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "clean": "git clean -xdf .cache .turbo dist",
     "clean:all": "git clean -xdf .cache .turbo dist node_modules",
-    "build": "pnpm run clean && rollup -c",
+    "build": "tsdown",
     "build:watch": "pnpm run clean && rollup -c -w",
     "test": "vitest --run --passWithNoTests",
     "test:watch": "vitest --watch",
@@ -49,7 +49,8 @@
     "@rollup/plugin-node-resolve": "catalog:dev",
     "@rollup/plugin-terser": "catalog:dev",
     "@rollup/plugin-typescript": "catalog:dev",
-    "glob": "catalog:dev",
+    "bytes": "catalog:prod",
+    "glob": "catalog:prod",
     "rollup-plugin-copy": "catalog:dev"
   },
   "devDependencies": {
@@ -57,10 +58,13 @@
     "@internal/prettier-config": "workspace:*",
     "@internal/rollup-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
+    "@internal/tsdown-config": "workspace:*",
+    "@internal/utils": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
     "rollup": "catalog:dev",
+    "tsdown": "catalog:dev",
     "typescript": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
