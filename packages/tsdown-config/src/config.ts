@@ -26,8 +26,8 @@ export interface Options extends TsDownOptions {
   bundleSize?: SizeLimitOption;
 }
 
-function defineConfig(options: Options): Options {
-  const { bundleDependencies, bundleSize } = options;
+function defineConfig(options?: Options): Options {
+  const { bundleDependencies, bundleSize } = options || {};
 
   const tsdownOptions: Options = {
     entry: ['src/index.ts'],
