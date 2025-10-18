@@ -45,7 +45,6 @@
     "tsdown": ">=0.15.0"
   },
   "dependencies": {
-    "@internal/utils": "workspace:*",
     "@manypkg/get-packages": "catalog:prod",
     "@pixpilot/rollup-plugin-size-limit": "catalog:dev",
     "bytes": "catalog:prod",
@@ -56,6 +55,7 @@
     "@internal/prettier-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/tsdown-config": "workspace:*",
+    "@internal/utils": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@pixpilot/rollup-plugin-size-limit": "catalog:dev",
     "@types/bytes": "^3.1.5",

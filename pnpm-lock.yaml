@@ -256,9 +256,6 @@ importers:
 
   packages/tsdown-config:
     dependencies:
-      '@internal/utils':
-        specifier: workspace:*
-        version: link:../utils
       '@manypkg/get-packages':
         specifier: catalog:prod
         version: 3.1.0
@@ -284,6 +281,9 @@ importers:
       '@internal/tsdown-config':
         specifier: workspace:*
         version: link:../../tooling/tsdown
+      '@internal/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@internal/vitest-config':
         specifier: workspace:*
         version: link:../../tooling/vitest
