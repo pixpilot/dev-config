@@ -2,6 +2,9 @@
   "name": "dev-config",
   "private": true,
   "packageManager": "pnpm@10.17.0",
+  "author": "m.doaie <m.doaie@hotmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/pixpilot/dev-config",
   "repository": {
     "type": "git",
     "url": "https://github.com/pixpilot/dev-config.git"
@@ -33,14 +36,15 @@
     "deps:update": "npx taze -r -w && pnpm install",
     "deps:update:major": "npx taze major -r -w && pnpm install",
     "turbo:gen:init": "pnpm turbo gen init",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "generate-packages-section": "node scripts/generate-packages-section.js"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.6",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@internal/prettier-config": "workspace:*",
-    "@pixpilot/workspace-package-generator": "^1.1.5",
+    "@pixpilot/workspace-package-generator": "^2.1.1",
     "@turbo/gen": "^2.5.5",
     "@types/node": "catalog:dev",
     "@vitest/coverage-v8": "catalog:dev",

@@ -1,7 +1,57 @@
 # dev-config
 
-Modern, opinionated configurations for TypeScript projects.
+> A modern TypeScript monorepo managed with pnpm and TurboRepo.
 
-## Packages
+## 🚀 Getting Started
 
-- [**@pixpilot/dev-config**](packages/dev-config/README.md) - Shared configurations for Prettier, TypeScript, ESLint, and more.
+### Development
+
+Build all packages:
+
+```sh
+pnpm build
+```
+
+Run tests:
+
+```sh
+pnpm test
+```
+
+Lint and format:
+
+```sh
+pnpm lint
+pnpm format
+```
+
+### Create a New Package
+
+Generate a new package in the monorepo:
+
+```sh
+pnpm run turbo:gen:init
+```
+
+## 📦 Packages
+
+### [dev-config](./packages/dev-config/README.md)
+
+Modern, opinionated development configurations.
+
+### [rollup-config](./packages/rollup-config/README.md)
+
+Rollup configuration for PixPilot projects.
+
+### [tsdown-config](./packages/tsdown-config/README.md)
+
+Tsdown configuration for PixPilot projects.
+
+
+## 🚢 Releases
+
+This project uses [Changesets](https://github.com/changesets/changesets) for version management and publishing.
+
+## 📄 License
+
+[MIT](LICENSE)

@@ -1,4 +1,23 @@
-## **General Guidelines**
+# Copilot Instructions
 
-- **Package Manager**: Only use `pnpm` for installing or managing dependencies within this project's actual source code. However, for all `README.md` and other documentation files, always use `npm` commands (`npm install -D ...`) for user-facing examples.
-- **File Naming**: When creating a new configuration, the file name in the repository must correspond to the entry point specified in the documentation (e.g., a config for `eslint-foo` would be located at `eslint-foo.js` and accessed via `@pixpilot/dev-config/eslint-foo`).
+- Only use pnpm for installing or managing dependencies in this project. Do not use npm, yarn, or any other package manager.
+- This is a monorepo powered by Turbo and pnpm.
+
+## Commenting
+
+- If a comment is long, write it as a multi-line comment and break lines for readability.
+
+## Testing
+
+This project uses Vitest for testing.
+
+# File Naming Conventions
+
+## JavaScript/TypeScript
+
+- **File Naming:** Use kebab-case for almost all files, including those whose main export is a PascalCase class.
+  - Example: `my-module.ts`, `helper-functions.js`, `data-handler.js`
+- **Frontend UI Components (React/Vue only):** Use PascalCase for component files (e.g., `MyButton.tsx`).
+  - Example: `MyButton.tsx`, `UserProfile.vue`
+- **Config files:** Use kebab-case unless the framework or library has a different standard—follow the convention for that tool.
+  - Example: `tsconfig.json`
