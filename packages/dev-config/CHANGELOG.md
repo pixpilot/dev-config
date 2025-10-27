@@ -1,5 +1,19 @@
 # @pixpilot/dev-config
 
+## 3.16.0
+
+### Minor Changes
+
+- add tsdown-config
+- add tsconfig option to RollupConfigOptions
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- update project setup to remove build flag
+- add directory field to package.json
+- update README.md and package.json for clarity and structure
+
 ## 3.15.0
 
 ### Minor Changes
