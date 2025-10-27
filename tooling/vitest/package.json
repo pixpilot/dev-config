@@ -20,7 +20,7 @@
     "@internal/prettier-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@vitest/coverage-v8": "catalog:dev",
-    "ci-info": "^4.0.0",
+    "ci-info": "^4.3.1",
     "esbuild": "^0.25.11",
     "eslint": "catalog:dev",
     "tsx": "catalog:dev",
