@@ -1,5 +1,19 @@
 # @pixpilot/dev-config
 
+## 3.17.0
+
+### Minor Changes
+
+- add tsconfig option to RollupConfigOptions
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- remove unused `resolve-entry-points` module and related tests
+- update project setup to remove build flag
+- add directory field to package.json
+- fix eslint warns
+
 ## 3.16.0
 
 ### Minor Changes

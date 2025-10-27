@@ -1,5 +1,19 @@
 # @pixpilot/rollup-config
 
+## 0.13.0
+
+### Minor Changes
+
+- add tsdown-config
+- add tsconfig option to RollupConfigOptions
+- add commit-msg hook for linting
+- add rollup-config
+
+### Patch Changes
+
+- update project setup to remove build flag
+- update README.md and package.json for clarity and structure
+
 ## 0.12.0
 
 ### Minor Changes
