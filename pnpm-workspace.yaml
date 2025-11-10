@@ -11,7 +11,7 @@ catalogs:
 
     prettier: ^3.6.2
     rollup: ^4.46.2
-    typescript: ^5.9.2
+    typescript: ^5.9.3
     vitest: ^3.2.4
     "@rollup/plugin-typescript": ^12.1.4
     "@rollup/plugin-node-resolve": ^16.0.3

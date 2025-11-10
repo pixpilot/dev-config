@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@pixpilot/eslint-config": "^2.8.0",
-    "typescript-eslint": "^8.40.0"
+    "typescript-eslint": "^8.46.3"
   },
   "devDependencies": {
     "eslint": "catalog:dev",
