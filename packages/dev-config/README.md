@@ -35,6 +35,14 @@ import config from '@pixpilot/dev-config/prettier';
 export default config;
 ```
 
+or commonjs:
+
+```javascript
+const config = require('@pixpilot/dev-config/prettier');
+
+module.exports = config;
+```
+
 ### TypeScript
 
 Create `tsconfig.json` to extend the base configuration.
