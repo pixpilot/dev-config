@@ -40,7 +40,7 @@ or commonjs:
 ```javascript
 const config = require('@pixpilot/dev-config/prettier');
 
-module.exports = config;
+module.exports = config.default ?? config;
 ```
 
 ### TypeScript
