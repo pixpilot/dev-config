@@ -1,5 +1,20 @@
 # @pixpilot/dev-config
 
+## 3.18.0
+
+### Minor Changes
+
+- add RollupConfigError class for better error handling
+- add tsconfig resolution logic and update interface
+- update dependency handling and improve alias creation
+- add additional copy targets for configuration
+
+### Patch Changes
+
+- remove unused `resolve-entry-points` module and related tests
+- add directory field to package.json
+- fix eslint warns
+
 ## 3.17.0
 
 ### Minor Changes
