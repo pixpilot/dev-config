@@ -66,7 +66,8 @@
     "eslint": "catalog:dev",
     "rollup": "catalog:dev",
     "tsdown": "catalog:dev",
-    "typescript": "catalog:dev"
+    "typescript": "catalog:dev",
+    "unrun": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
 }
