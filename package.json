@@ -31,6 +31,7 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage --config tooling/vitest/index.js",
     "typecheck": "turbo run typecheck",
+    "check:all": "pnpm typecheck && pnpm lint && pnpm format --check",
     "clean:workspaces": "turbo run clean:all && git clean -xdf .cache .turbo",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "deps:update": "npx taze -r -w && pnpm install",

@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
+    "prettier": "catalog:dev",
     "typescript": "catalog:dev"
   }
 }

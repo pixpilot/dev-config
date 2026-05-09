@@ -1,6 +1,6 @@
 import type { SizeLimitOption } from '@pixpilot/rollup-plugin-size-limit';
 
-import type { Options as TsDownOptions } from 'tsdown';
+import type { UserConfig as TsDownOptions } from 'tsdown';
 import process from 'node:process';
 
 import { getExternalPackages, getPrivateWorkspacePackages } from '@internal/utils';

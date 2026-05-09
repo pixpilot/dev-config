@@ -26,6 +26,7 @@
     "@rollup/plugin-typescript": "^12.1.4",
     "@types/node": "catalog:dev",
     "glob": "catalog:prod",
+    "prettier": "catalog:dev",
     "rollup": "catalog:dev",
     "typescript": "catalog:dev"
   },
