@@ -36,37 +36,46 @@ function defineConfig(options?: Options): Options {
     treeshake: true,
     clean: true,
     minify: true,
+    /*
+     * Use .js/.d.ts for ESM and .cjs/.d.cts for CJS so consumers with
+     * both `moduleResolution: bundler` and `node16/nodenext` can resolve
+     * types without extra exports map tricks.
+     * Note: tsdown normalizes 'esm' → 'es' internally (rolldown convention).
+     */
+    outExtensions: ({ format }) => {
+      if (format === 'es') return { js: '.js', dts: '.d.ts' };
+      return { js: '.cjs', dts: '.d.cts' };
+    },
   };
 
-  if (bundleDependencies) {
-    // Bundle everything
-    tsdownOptions.noExternal = [/.*/u];
-  } else {
-    // Externalize all dependencies and peerDependencies
-    // Private workspace packages are automatically filtered out by getExternalPackages
-    const externalPackages = getExternalPackages(process.cwd());
+  /*
+   * Only configure deps externalization when the user has not supplied their
+   * own `deps` or the legacy `external`/`noExternal` overrides. This avoids
+   * tsdown throwing on conflicting deprecated/new API combinations.
+   */
+  const userHasExternalConfig =
+    options?.deps != null || options?.external != null || options?.noExternal != null;
 
-    // Set external to only externalize packages in the list
-    tsdownOptions.external = (id: string, _parentId?: string, _isResolved?: boolean) => {
-      // Check if it's in our external packages list
-      if (externalPackages.includes(id)) {
-        return true;
-      }
-      // Always externalize node: protocol imports
-      if (id.startsWith('node:')) {
-        return true;
-      }
-      return false;
-    };
+  if (!userHasExternalConfig) {
+    if (bundleDependencies) {
+      tsdownOptions.deps = { alwaysBundle: [/.*/u] };
+    } else {
+      const externalPackages = getExternalPackages(process.cwd());
+      const privatePackages = getPrivateWorkspacePackages(process.cwd());
 
-    // Also explicitly bundle private workspace packages using noExternal
-    // This ensures they are bundled even if they match other external patterns
-    const privatePackages = getPrivateWorkspacePackages(process.cwd());
-    if (privatePackages.length > 0) {
-      tsdownOptions.noExternal = privatePackages.map(
-        (pkg: string) =>
-          new RegExp(`^${pkg.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&')}$`, 'u'),
-      );
+      tsdownOptions.deps = {
+        neverBundle: (id: string) => {
+          if (externalPackages.includes(id)) return true;
+          if (id.startsWith('node:')) return true;
+          return false;
+        },
+        ...(privatePackages.length > 0 && {
+          alwaysBundle: privatePackages.map(
+            (pkg: string) =>
+              new RegExp(`^${pkg.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&')}$`, 'u'),
+          ),
+        }),
+      };
     }
   }
 

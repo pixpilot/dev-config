@@ -31,16 +31,17 @@ describe('defineConfig', () => {
 
     const config = defineConfig({});
 
-    expect(typeof config.external).toBe('function');
-    // Test the external function
-    if (typeof config.external === 'function') {
-      expect(config.external('dep1', undefined, false)).toBe(true);
-      expect(config.external('dep2', undefined, false)).toBe(true);
-      expect(config.external('peer1', undefined, false)).toBe(true);
-      expect(config.external('not-a-dep', undefined, false)).toBe(false);
-      expect(config.external('node:fs', undefined, false)).toBe(true);
+    expect(typeof config.deps?.neverBundle).toBe('function');
+    // Test the neverBundle function
+    const neverBundle = config.deps?.neverBundle;
+    if (typeof neverBundle === 'function') {
+      expect(neverBundle('dep1', undefined, false)).toBe(true);
+      expect(neverBundle('dep2', undefined, false)).toBe(true);
+      expect(neverBundle('peer1', undefined, false)).toBe(true);
+      expect(neverBundle('not-a-dep', undefined, false)).toBe(false);
+      expect(neverBundle('node:fs', undefined, false)).toBe(true);
     }
-    expect(config.noExternal).toBeUndefined();
+    expect(config.deps?.alwaysBundle).toBeUndefined();
   });
 
   it('should bundle everything when bundleDependencies is true', () => {
@@ -57,8 +58,8 @@ describe('defineConfig', () => {
 
     const config = defineConfig({ bundleDependencies: true });
 
-    expect(config.noExternal).toEqual([/.*/u]);
-    expect(config.external).toBeUndefined();
+    expect(config.deps?.alwaysBundle).toEqual([/.*/u]);
+    expect(config.deps?.neverBundle).toBeUndefined();
   });
 
   it('should handle missing package.json gracefully', () => {
@@ -81,11 +82,12 @@ describe('defineConfig', () => {
 
     const config = defineConfig({});
 
-    expect(typeof config.external).toBe('function');
-    // Test the external function - should return false for non-node packages
-    if (typeof config.external === 'function') {
-      expect(config.external('some-package', undefined, false)).toBe(false);
-      expect(config.external('node:fs', undefined, false)).toBe(true);
+    expect(typeof config.deps?.neverBundle).toBe('function');
+    // Test the neverBundle function - should return false for non-node packages
+    const neverBundle = config.deps?.neverBundle;
+    if (typeof neverBundle === 'function') {
+      expect(neverBundle('some-package', undefined, false)).toBe(false);
+      expect(neverBundle('node:fs', undefined, false)).toBe(true);
     }
   });
 
