@@ -1,5 +1,22 @@
 # @pixpilot/dev-config
 
+## 3.19.0
+
+### Minor Changes
+
+- add build:watch script and commonjs plugin
+- enhance configuration with async support and workspace aliasing
+- add tsconfig option to RollupConfigOptions
+- enhanced bundleDependencies to handle workspace packages
+- add rollup-config
+
+### Patch Changes
+
+- update dependencies in pnpm workspace and tooling packages
+- moved internal dep to dev
+- remove private flag from package.json
+- fix eslint warns
+
 ## 3.18.0
 
 ### Minor Changes

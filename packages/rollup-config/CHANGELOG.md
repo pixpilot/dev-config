@@ -1,5 +1,21 @@
 # @pixpilot/rollup-config
 
+## 0.15.0
+
+### Minor Changes
+
+- add tsdown-config
+- add tsconfig resolution logic and update interface
+- update dependency handling and improve alias creation
+- add additional copy targets for configuration
+
+### Patch Changes
+
+- update dependencies in pnpm workspace and tooling packages
+- update project setup to remove build flag
+- update package.json to set module type and public access
+- fix eslint warns
+
 ## 0.14.0
 
 ### Minor Changes
