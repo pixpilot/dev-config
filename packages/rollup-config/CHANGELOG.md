@@ -1,5 +1,22 @@
 # @pixpilot/rollup-config
 
+## 0.17.0
+
+### Minor Changes
+
+- add tsdown-config
+- add build:watch script and commonjs plugin
+- enhance configuration with async support and workspace aliasing
+- update dependency handling and improve alias creation
+- add commit-msg hook for linting
+- add rollup-config
+
+### Patch Changes
+
+- update hooks to skip execution in CI environment
+- update dependencies in pnpm workspace and tooling packages
+- update README.md and package.json for clarity and structure
+
 ## 0.16.0
 
 ### Minor Changes

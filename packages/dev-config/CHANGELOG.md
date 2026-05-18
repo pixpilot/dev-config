@@ -1,5 +1,23 @@
 # @pixpilot/dev-config
 
+## 3.21.0
+
+### Minor Changes
+
+- add RollupConfigError class for better error handling
+- enhance configuration with async support and workspace aliasing
+- update dependency handling and improve alias creation
+- add commit-msg hook for linting
+- add rollup-config
+
+### Patch Changes
+
+- add 'unrun' package to development dependencies
+- update dependencies in pnpm workspace and tooling packages
+- remove unused `resolve-entry-points` module and related tests
+- add directory field to package.json
+- update README.md and package.json for clarity and structure
+
 ## 3.20.0
 
 ### Minor Changes

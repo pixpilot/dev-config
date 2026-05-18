@@ -1,5 +1,24 @@
 # @pixpilot/tsdown-config
 
+## 0.7.0
+
+### Minor Changes
+
+- add build:watch script and commonjs plugin
+- add tsconfig resolution logic and update interface
+- enhanced bundleDependencies to handle workspace packages
+- enhance configuration with copy options
+
+### Patch Changes
+
+- update hooks to skip execution in CI environment
+- add 'unrun' package to development dependencies
+- moved internal dep to dev
+- update project setup to remove build flag
+- add directory field to package.json
+- update README.md and package.json for clarity and structure
+- fix eslint warns
+
 ## 0.6.0
 
 ### Minor Changes
