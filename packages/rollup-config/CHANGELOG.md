@@ -1,5 +1,20 @@
 # @pixpilot/rollup-config
 
+## 0.16.0
+
+### Minor Changes
+
+- add RollupConfigError class for better error handling
+- add tsconfig resolution logic and update interface
+- enhanced bundleDependencies to handle workspace packages
+- add rollup-config
+
+### Patch Changes
+
+- add 'unrun' package to development dependencies
+- moved internal dep to dev
+- update README.md and package.json for clarity and structure
+
 ## 0.15.0
 
 ### Minor Changes

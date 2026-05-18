@@ -1,5 +1,20 @@
 # @pixpilot/dev-config
 
+## 3.20.0
+
+### Minor Changes
+
+- add tsconfig option to RollupConfigOptions
+- add commit-msg hook for linting
+
+### Patch Changes
+
+- update dependencies in pnpm workspace and tooling packages
+- remove unused `resolve-entry-points` module and related tests
+- update project setup to remove build flag
+- add directory field to package.json
+- update README.md and package.json for clarity and structure
+
 ## 3.19.0
 
 ### Minor Changes

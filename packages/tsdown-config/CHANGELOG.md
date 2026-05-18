@@ -1,5 +1,20 @@
 # @pixpilot/tsdown-config
 
+## 0.6.0
+
+### Minor Changes
+
+- add build:watch script and commonjs plugin
+- enhance configuration with async support and workspace aliasing
+- update dependency handling and improve alias creation
+
+### Patch Changes
+
+- add 'unrun' package to development dependencies
+- handle optional options parameter in defineConfig
+- add directory field to package.json
+- fix eslint warns
+
 ## 0.5.0
 
 ### Minor Changes
