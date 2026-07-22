@@ -1,5 +1,21 @@
 # @pixpilot/rollup-config
 
+## 0.18.0
+
+### Minor Changes
+
+- add tsdown-config
+- add tsconfig option to RollupConfigOptions
+- enhanced bundleDependencies to handle workspace packages
+- add rollup-config
+
+### Patch Changes
+
+- update hooks to skip execution in CI environment
+- update dependencies in pnpm workspace and tooling packages
+- update project setup to remove build flag
+- remove private flag from package.json
+
 ## 0.17.0
 
 ### Minor Changes
