@@ -1,5 +1,22 @@
 # @pixpilot/tsdown-config
 
+## 0.8.0
+
+### Minor Changes
+
+- add tsdown-config
+- add tsconfig resolution logic and update interface
+- enhanced bundleDependencies to handle workspace packages
+- add rollup-config
+
+### Patch Changes
+
+- update hooks to skip execution in CI environment
+- update dependencies in pnpm workspace and tooling packages
+- update project setup to remove build flag
+- remove private flag from package.json
+- fix eslint warns
+
 ## 0.7.0
 
 ### Minor Changes
