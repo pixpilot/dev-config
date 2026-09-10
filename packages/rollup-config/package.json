@@ -11,6 +11,9 @@
     "url": "https://github.com/pixpilot/dev-config.git",
     "directory": "packages/rollup"
   },
+  "bugs": {
+    "url": "https://github.com/pixpilot/dev-config/issues"
+  },
   "keywords": [],
   "exports": {
     ".": {

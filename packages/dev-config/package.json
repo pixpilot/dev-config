@@ -13,6 +13,9 @@
     "url": "https://github.com/pixpilot/dev-config",
     "directory": "packages/dev-config"
   },
+  "bugs": {
+    "url": "https://github.com/pixpilot/dev-config/issues"
+  },
   "keywords": [
     "prettier",
     "typescript",
