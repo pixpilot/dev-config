@@ -36,9 +36,10 @@ jobs:
           token: ${{ steps.app_token.outputs.token }}
 
       - name: Setup project
-        uses: ./.github/actions/setup-project
+        uses: pixpilot/github-actions/setup-pnpm-project@v1
         with:
           registry-url: 'https://registry.npmjs.org'
+          build: 'true'
 
       - name: Release
         uses: pixpilot/changesets-autopilot@v1

@@ -35,7 +35,7 @@ function defineConfig(options?: Options): Options {
     dts: true,
     treeshake: true,
     clean: true,
-    minify: true,
+    minify: false,
     /*
      * Use .js/.d.ts for ESM and .cjs/.d.cts for CJS so consumers with
      * both `moduleResolution: bundler` and `node16/nodenext` can resolve
