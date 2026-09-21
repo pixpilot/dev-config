@@ -1,5 +1,11 @@
 # @pixpilot/dev-config
 
+## 3.22.1
+
+### Patch Changes
+
+- e89d3b8: ci release test
+
 ## 3.22.0
 
 ### Minor Changes

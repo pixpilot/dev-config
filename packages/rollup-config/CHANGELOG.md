@@ -1,5 +1,11 @@
 # @pixpilot/rollup-config
 
+## 0.18.1
+
+### Patch Changes
+
+- e89d3b8: ci release test
+
 ## 0.18.0
 
 ### Minor Changes

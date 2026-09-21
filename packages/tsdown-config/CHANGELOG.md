@@ -1,5 +1,12 @@
 # @pixpilot/tsdown-config
 
+## 0.8.3
+
+### Patch Changes
+
+- replace custom setup action with pixpilot/setup-pnpm-project
+- e89d3b8: ci release test
+
 ## 0.8.2
 
 ### Patch Changes
