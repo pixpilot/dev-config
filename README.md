@@ -1,7 +1,5 @@
 # dev-config
 
-> A modern TypeScript monorepo managed with pnpm and TurboRepo.
-
 ## 🚀 Getting Started
 
 ### Development
@@ -46,7 +44,6 @@ Rollup configuration for PixPilot projects.
 ### [tsdown-config](./packages/tsdown-config/README.md)
 
 Tsdown configuration for PixPilot projects.
-
 
 ## 🚢 Releases
 
