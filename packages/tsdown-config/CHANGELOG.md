@@ -1,5 +1,11 @@
 # @pixpilot/tsdown-config
 
+## 0.8.1
+
+### Patch Changes
+
+- replace custom setup action with pixpilot/setup-pnpm-project
+
 ## 0.8.0
 
 ### Minor Changes
